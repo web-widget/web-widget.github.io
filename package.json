@@ -4,7 +4,7 @@
   "scripts": {
     "publish": "npm run build && npm run sync && npm run git-push",
     "build": "cd ../web-widget/ && npm run docs",
-    "sync": "rsync -r --delete ../web-widget/_site/ ./_site",
+    "sync": "rsync -r --delete ../web-widget/_site/ ./docs",
     "git-push": "export https_proxy='socks5://127.0.0.1:1080' && git add . && git commit -m 'Update the website' && git push"
   }
 }
