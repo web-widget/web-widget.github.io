@@ -2,7 +2,7 @@
   "name": "web-widget-website",
   "private": true,
   "scripts": {
-    "publish": "npm run build && npm run sync && npm run git-push",
+    "publish": "export https_proxy='socks5://127.0.0.1:1080' && npm run build && npm run sync && npm run git-push",
     "build": "cd ../web-widget/ && npm run docs",
     "sync": "rsync -r --delete ../web-widget/_site/** ./",
     "git-push": "git add . && git commit -m 'Update the website' && git push"
