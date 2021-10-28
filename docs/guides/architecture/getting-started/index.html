@@ -241,7 +241,7 @@
         <main class="markdown-body">
   
     <h1 id="架构-入门"><a class="anchor" href="#架构-入门"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>架构: 入门</h1>
-<p>不同于传统的组件，Web Widget 的应用是建立在明确设计模式下的，因此我们有机会通过部署统一的架构去管理、优化它们，使我们更容易的构建符合最佳的用户体验的产品。</p>
+<p>不同于传统的组件，Web Widget 的应用是建立在明确范式上的，因此我们有机会通过部署统一的架构去管理、优化它们，更容易的构建符合最佳的用户体验的产品。</p>
 <h2 id="安装"><a class="anchor" href="#安装"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>安装</h2>
 <p>除了使用 CDN 来安装 Web Widget 运行时之外，常见做法是通过 NPM 安装到你的工程中。</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save @web-widget/core
@@ -261,7 +261,7 @@
 </ul>
 <p>更多相关信息可以参考 <a href="https://amp.dev">AMP</a> 的官网。</p>
 <h3 id="容器化是手段不是目的"><a class="anchor" href="#容器化是手段不是目的"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化是手段，不是目的</h3>
-<p>Web Widget 被设计为容器化的 UI 服务，它和传统的 Library 的有着明显的区别，因此应用事件机制、应用的对外接口并非 Web Widget 的要素，如果我们发现 Web Widget 应用需要频繁的与外部交互，一些解决问题的建议：</p>
+<p>Web Widget 被设计为容器化的 UI 服务，它和传统的 Library 的有着明显的区别，因此应用事件机制、应用的对外接口并非 Web Widget 的要素，如果我们发现 Web Widget 应用需要频繁的与外部交互，你可以尝试：</p>
 <ul>
 <li>使用传统 Library 来共享代码</li>
 <li>将需要相互交互的 Web Widget 应用合并成一个</li>
