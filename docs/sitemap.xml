@@ -3,205 +3,205 @@
   
     <url>
       <loc>http://localhost:8000/404.html</loc>
-      <lastmod>2021-10-26T14:44:26.391Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/code-examples/</loc>
-      <lastmod>2021-10-26T14:44:26.606Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/getting-started/</loc>
-      <lastmod>2021-10-26T14:44:26.607Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/going-buildless/</loc>
-      <lastmod>2021-10-26T14:44:26.608Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/</loc>
-      <lastmod>2021-10-26T14:44:26.608Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/publishing/</loc>
-      <lastmod>2021-10-26T14:44:26.608Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/testing/</loc>
-      <lastmod>2021-10-26T14:44:26.609Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/</loc>
-      <lastmod>2021-10-26T14:44:26.610Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/architecture/</loc>
-      <lastmod>2021-10-26T14:44:26.624Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/architecture/containerization/</loc>
-      <lastmod>2021-10-26T14:44:26.625Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/</loc>
-      <lastmod>2021-10-26T14:44:26.625Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/application/</loc>
-      <lastmod>2021-10-26T15:00:32.649Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/application/overview/</loc>
-      <lastmod>2021-10-26T15:00:32.651Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/api/</loc>
-      <lastmod>2021-10-26T15:00:32.652Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/</loc>
-      <lastmod>2021-10-26T15:00:32.653Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/overview/</loc>
-      <lastmod>2021-10-26T15:00:32.654Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/import/</loc>
-      <lastmod>2021-10-26T15:00:32.655Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/</loc>
-      <lastmod>2021-10-26T15:00:32.655Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/overview/</loc>
-      <lastmod>2021-10-26T15:00:32.656Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/router/</loc>
-      <lastmod>2021-10-26T15:00:32.657Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/sandbox/</loc>
-      <lastmod>2021-10-26T15:00:32.657Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/system-loader/</loc>
-      <lastmod>2021-10-26T15:00:32.658Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/umd-loader/</loc>
-      <lastmod>2021-10-26T15:00:32.659Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/writing-plugins/</loc>
-      <lastmod>2021-10-26T15:00:32.660Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/writing-plugins/overview/</loc>
-      <lastmod>2021-10-26T15:00:32.660Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/</loc>
-      <lastmod>2021-10-26T15:00:32.661Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/manifest/</loc>
-      <lastmod>2021-10-26T15:00:32.662Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/manifest/overview/</loc>
-      <lastmod>2021-10-26T15:00:32.663Z</lastmod>
+      <lastmod>2021-10-28T02:34:28.078Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
       <loc>http://localhost:8000/discover/about/</loc>
-      <lastmod>2021-10-26T15:02:26.971Z</lastmod>
+      <lastmod>2021-10-28T02:34:28.082Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/architecture/router/</loc>
-      <lastmod>2021-10-27T03:08:43.505Z</lastmod>
+      <loc>http://localhost:8000/docs/application/</loc>
+      <lastmod>2021-10-28T02:34:28.082Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/architecture/sandbox/</loc>
-      <lastmod>2021-10-27T03:20:26.890Z</lastmod>
+      <loc>http://localhost:8000/docs/application/overview/</loc>
+      <lastmod>2021-10-28T02:34:28.082Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/api/</loc>
+      <lastmod>2021-10-28T02:34:28.083Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/</loc>
+      <lastmod>2021-10-28T02:34:28.083Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/overview/</loc>
+      <lastmod>2021-10-28T02:34:28.083Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/import/</loc>
+      <lastmod>2021-10-28T02:34:28.083Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/</loc>
+      <lastmod>2021-10-28T02:34:28.083Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/overview/</loc>
+      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/router/</loc>
+      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/sandbox/</loc>
+      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/system-loader/</loc>
+      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/umd-loader/</loc>
+      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
       <loc>http://localhost:8000/docs/container/tags/</loc>
-      <lastmod>2021-10-27T03:41:59.974Z</lastmod>
+      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/writing-plugins/</loc>
+      <lastmod>2021-10-28T02:34:28.085Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/writing-plugins/overview/</loc>
+      <lastmod>2021-10-28T02:34:28.085Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/</loc>
+      <lastmod>2021-10-28T02:34:28.085Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/manifest/</loc>
+      <lastmod>2021-10-28T02:34:28.085Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/manifest/overview/</loc>
+      <lastmod>2021-10-28T02:34:28.085Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
       <loc>http://localhost:8000/guides/architecture/cdn/</loc>
-      <lastmod>2021-10-27T08:09:24.826Z</lastmod>
+      <lastmod>2021-10-28T02:34:28.086Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/containerization/</loc>
+      <lastmod>2021-10-28T02:34:28.086Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/</loc>
+      <lastmod>2021-10-28T02:34:28.086Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/router/</loc>
+      <lastmod>2021-10-28T02:34:28.086Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/sandbox/</loc>
+      <lastmod>2021-10-28T02:34:28.086Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
       <loc>http://localhost:8000/guides/architecture/shared-dependencies/</loc>
-      <lastmod>2021-10-27T08:37:59.230Z</lastmod>
+      <lastmod>2021-10-28T02:34:28.086Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/code-examples/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/getting-started/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/going-buildless/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/publishing/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/testing/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/</loc>
+      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/</loc>
+      <lastmod>2021-10-28T02:34:28.088Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
