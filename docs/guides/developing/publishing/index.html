@@ -240,9 +240,9 @@
 <p>默认情况下，Web Widget 应用的使用者不应该关心依赖处理，而应该是直接可用，所以你应当尽可能的将依赖打包在一起。</p>
 <h2 id="packagejson-定义-module-与-system-字段"><a class="anchor" href="#packagejson-定义-module-与-system-字段"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>package.json: 定义 <code>module</code> 与 <code>system</code> 字段</h2>
 <pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"dist/cjs/sandbox.js"</span><span class="token punctuation">,</span>
-  <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"dist/esm/sandbox.js"</span><span class="token punctuation">,</span>
-  <span class="token property">"system"</span><span class="token operator">:</span> <span class="token string">"dist/system/sandbox.js"</span>
+  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"dist/cjs/app.widget.js"</span><span class="token punctuation">,</span>
+  <span class="token property">"module"</span><span class="token operator">:</span> <span class="token string">"dist/esm/app.widget.js"</span><span class="token punctuation">,</span>
+  <span class="token property">"system"</span><span class="token operator">:</span> <span class="token string">"dist/system/app.widget.js"</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="使用语义化版本管理"><a class="anchor" href="#使用语义化版本管理"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用语义化版本管理</h2>
@@ -250,7 +250,7 @@
 <h2 id="可选源映射"><a class="anchor" href="#可选源映射"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>可选：源映射</h2>
 <p>如果你选择在 TypeScript 中工作，或者使用比上述标准更新的语法，那么包含源映射可以有助于用户更好的理解它。</p>
 <h2 id="可选共享依赖"><a class="anchor" href="#可选共享依赖"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>可选：共享依赖</h2>
-<p>如果 Web Widget 应用工作在特定环境下，你希望能够通过共享宿主环境的某个包，可以通过裸模块的方式引入这些包，然后由宿主来解析这些包的路径。</p>
+<p>如果 Web Widget 应用工作在特定环境下，你明确知道宿主提供公共包的名字，这样你可以通过裸模块的方式引入这些包，并且在构建工具中排除这些包，以便和宿主共享这些包。</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token maybe-class-name">Vue</span> <span class="token keyword module">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>宿主如何实现共享依赖？详情请前往<a href="../../architecture/shared-dependencies/">依赖共享文档</a>。</p>

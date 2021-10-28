@@ -86,7 +86,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/container/tags/</loc>
+      <loc>http://localhost:8000/docs/container/tag/</loc>
       <lastmod>2021-10-28T02:34:28.084Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -202,6 +202,12 @@
     <url>
       <loc>http://localhost:8000/guides/architecture/getting-started/</loc>
       <lastmod>2021-10-28T03:43:38.847Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/application/api/</loc>
+      <lastmod>2021-10-28T09:23:24.759Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
