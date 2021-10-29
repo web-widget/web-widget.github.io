@@ -255,7 +255,7 @@
 <h2 id="模块格式"><a class="anchor" href="#模块格式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>模块格式</h2>
 <p>默认情况下 <code>src</code> 支持的是 ES module 模块，通过<a href="../plugins/overview/">插件</a>可以支持不同类型的格式，例如 <a href="../plugins/system-loader/">system-loader</a> 与 <a href="../plugins/umd-loader/">umd-loader</a>。</p>
 <h2 id="生命周期"><a class="anchor" href="#生命周期"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>生命周期</h2>
-<p>Web Widget 容器对应的 DOM 生命周期回调将异步触发应用的生命周期：</p>
+<p>默认情况下 Web Widget 容器 DOM 生命周期和应用的生命周期绑定在一起，通过异步的方式触发执行：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 widget<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token string">'app.widget.js'</span><span class="token punctuation">;</span>
 
@@ -267,6 +267,15 @@ widget<span class="token punctuation">.</span><span class="token method function
 
 <span class="token comment">// unmount -&gt; unload</span>
 <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">removeChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="手动管理"><a class="anchor" href="#手动管理"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>手动管理</h3>
+<p>在容器上设置 <code>inactive</code> 属性，即可关闭与 DOM 生命周期的绑定，这时候可以通过容器<a href="../interfaces/html-web-widget-element/">接口</a>来手动控制应用的生命周期。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token property-access">inactive</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token string">'app.widget.js'</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+widget<span class="token punctuation">.</span><span class="token method function property-access">mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 
   
