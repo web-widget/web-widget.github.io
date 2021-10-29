@@ -292,7 +292,7 @@
      │                               └&gt; unmount ┤
      │                                          └&gt; unload ┐
      │                                                    │
-      &lt;────────── [ Hot-reloading ] ──────────────────────┘
+      &lt;───────────── [ Hot-reloading ] ───────────────────┘
 </code></pre>
 <ul>
 <li>所有生命周期函数都是可选的</li>
@@ -345,7 +345,7 @@
   <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// Do framework UI unrendering here</span>
     container<span class="token punctuation">.</span><span class="token method function property-access">removeChild</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'updated!'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'unmounted!'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
