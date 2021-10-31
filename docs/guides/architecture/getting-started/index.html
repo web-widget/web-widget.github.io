@@ -171,10 +171,13 @@
 <a href="/guides/architecture/getting-started/">入门</a>
 <ul>
   <li class="menu-item anchor">
+    <a href="#web-widget-的边界" class="anchor">Web Widget 的边界</a>
+  </li>
+  <li class="menu-item anchor">
     <a href="#安装" class="anchor">安装</a>
   </li>
   <li class="menu-item anchor">
-    <a href="#权衡" class="anchor">权衡</a>
+    <a href="#性能优先" class="anchor">性能优先</a>
   </li>
   <li class="menu-item anchor">
     <a href="#懒加载" class="anchor">懒加载</a>
@@ -237,7 +240,18 @@
         <main class="markdown-body">
   
     <h1 id="架构-入门"><a class="anchor" href="#架构-入门"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>架构: 入门</h1>
-<p>不同于传统的组件系统，Web Widget 的应用是建立在明确范式上的，因此我们有机会通过部署统一的架构去管理、优化它们，更容易的构建符合最佳的用户体验的产品。</p>
+<p>不同于传统的组件系统，Web Widget 的应用是建立在明确范式上的，因此我们有机会通过部署统一的架构去管理、优化它们，更容易的构建符合最佳的用户体验的产品。接下来的文档将引导你渐进式的架设前端微服务。</p>
+<h2 id="web-widget-的边界"><a class="anchor" href="#web-widget-的边界"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget 的边界</h2>
+<h3 id="服务--组件"><a class="anchor" href="#服务--组件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>服务 !== 组件</h3>
+<p>我们很容易将服务与组件混淆，以至于我们试图用组件的思路来建设服务体系，这会放大服务的缺点，而得不到任何好处。</p>
+<p>服务和组件的关键区别：服务是可以独立运行的，而组件是需要组装才能运行。因此，Web Widget 应用没有提供事件机制、没有提供对外的接口（除了生命周期函数）。</p>
+<h3 id="服务化是手段不是目标"><a class="anchor" href="#服务化是手段不是目标"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>服务化是手段不是目标</h3>
+<p>当你想考虑如何延长软件的生命的问题，或者架设无代码编程的物料体系的时候，服务化是一种非常好的解决问题手段。如果我们发现 Web Widget 应用确实需要与外部交互才能解决具体业务问题，你可以先尝试改进现有的代码：</p>
+<ul>
+<li>将需要频繁交互的模块 <code>import</code> 到 Web Widget 应用里，在内部解决耦合问题</li>
+<li>将需要相互交互的 Web Widget 应用合并成一个单一应用</li>
+</ul>
+<p>如果依然无法解决问题，你可能需要认真考虑是否应当继续实施服务化。</p>
 <h2 id="安装"><a class="anchor" href="#安装"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>安装</h2>
 <p>通过 NPM 安装到你的工程中：</p>
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save @web-widget/container
@@ -245,8 +259,7 @@
 <p>在页面中引入应用容器的运行时文件：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="权衡"><a class="anchor" href="#权衡"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>权衡</h2>
-<h3 id="首屏性能优先"><a class="anchor" href="#首屏性能优先"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>首屏性能优先</h3>
+<h2 id="性能优先"><a class="anchor" href="#性能优先"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>性能优先</h2>
 <p><a href="https://amp.dev">AMP</a> 的性能优先的工程设计为 Web Widget 的诞生提供了很多灵感，它的优化策略对采用 Web Widget 的网站也同样有效，一些推荐设置：</p>
 <ul>
 <li>HTML 中的布局、文本等关键元素通过服务器渲染，而 Web Widget 应用由浏览器渲染</li>
@@ -259,13 +272,6 @@
 <li>为 Web Widget 容器的运行时文件采用异步加载</li>
 </ul>
 <p>更多相关信息可以参考 <a href="https://amp.dev">AMP</a> 的官网。</p>
-<h3 id="容器化是手段不是目的"><a class="anchor" href="#容器化是手段不是目的"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化是手段，不是目的</h3>
-<p>Web Widget 被设计为适应容器化运行的 UI 服务，它和传统的 Library 的有着明显的区别：它不包含事件机制、不允许应用提供对外接口——通过这样的设计确保应用的副作用能够被约束。因此，如果我们发现 Web Widget 应用需要频繁的与外部交互，你可以先尝试：</p>
-<ul>
-<li>将 Library 引入到应用中，通过内部代码处理交互</li>
-<li>将需要相互交互的 Web Widget 应用合并成一个</li>
-</ul>
-<p>如果依然无法解决问题，你可能需要认真考虑 Web Widget 容器化架构是否适合你的工程。</p>
 <h2 id="懒加载"><a class="anchor" href="#懒加载"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>懒加载</h2>
 <p>类似 <code>&lt;img&gt;</code> 标签，使用 <code>loading="lazy"</code> 属性可以让元素进入视图才加载。</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
