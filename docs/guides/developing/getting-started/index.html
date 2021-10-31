@@ -150,9 +150,6 @@
   <li class="menu-item anchor">
     <a href="#开发第一个小挂件" class="anchor">开发第一个小挂件</a>
   </li>
-  <li class="menu-item anchor">
-    <a href="#安装" class="anchor">安装</a>
-  </li>
 </ul>
 
 </li>
@@ -194,6 +191,10 @@
 <li class="menu-item">
 <a href="/guides/architecture/shared-dependencies/">共享依赖</a>
 
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/plugin/">插件系统</a>
+
 </li></ul>
 </li></ul>
   <div class="sidebar-bottom">
@@ -221,25 +222,24 @@
 <p>在网页 <code>&lt;body&gt;</code> 中添加一个 <code>&lt;web-widget&gt;</code> 标签，它是小挂件的运行容器:</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>然后，在网页底部引入 Web Widget 的运行时，以便 <code>&lt;web-widget&gt;</code> 标签能够成为浏览器的一部分：</p>
+<p>然后，在网页底部引入 Web Widget 应用容器的运行时，以便 <code>&lt;web-widget&gt;</code> 标签能够成为浏览器的一部分：</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  import 'https://cdn.jsdelivr.net/npm/@web-widget/core/dist/esm/core.js';
+  import 'https://cdn.jsdelivr.net/npm/@web-widget/container/dist/esm/container.js';
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <h3 id="2-开发小挂件"><a class="anchor" href="#2-开发小挂件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>2. 开发小挂件</h3>
 <p>创建相应的 app.widget.js 文件，它是小挂件的应用格式：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function-variable function">mount</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">'&lt;h3&gt;&lt;hello wrold/h3&gt;'</span><span class="token punctuation">;</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css"><span class="token selector">h3</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> red <span class="token punctuation">}</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>&lt;hello wrold/h3&gt;
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>恭喜你，你已经完成了 Web Widget 架构最关键的部分。如果你通过服务器浏览网页，你会发现它已经开始工作了！</p>
+<p>恭喜你，你已经完成了 Web Widget 应用的开发。如果你通过服务器浏览网页，你会发现它已经开始工作了！</p>
 <p>小挂件的完整格式可以参考<a href="../../../docs/application/overview/">应用文档</a>。</p>
-<h2 id="安装"><a class="anchor" href="#安装"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>安装</h2>
-<p>除了使用 CDN 来安装 Web Widget 运行时之外，常见做法是通过 NPM 安装到你的工程中。</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> --save @web-widget/core
-</code></pre>
 
   
     <div class="content-footer">

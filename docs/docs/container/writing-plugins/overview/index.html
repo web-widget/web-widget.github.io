@@ -55,8 +55,6 @@
 <link rel="preload" href="../../../../9e9e2b78.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../../b0ea14e1.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../94f1c8673.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../77d62c06.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -238,11 +236,17 @@
         <main class="markdown-body">
   
     <h1 id="编写插件-概述"><a class="anchor" href="#编写插件-概述"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>编写插件: 概述</h1>
-<inline-notification type="tip">
-<p>这部分没有完成，欢迎提供帮助。</p>
-</inline-notification>
-        
-      
+<p>这份文档整理了<a href="../../interfaces/">接口文档</a>中涉及到扩展的部分。</p>
+<ul>
+<li><a href="../../interfaces/html-web-widget-element/">HTMLWebWidgetElement</a> 可以扩展应用容器的功能
+<ul>
+<li><a href="../../interfaces/html-web-widget-element/#createdependencies">createDependencies</a> 应用依赖注入的勾子</li>
+<li><a href="../../interfaces/html-web-widget-element/#createloader">createLoader</a> 应用加载器的勾子</li>
+<li><a href="../../interfaces/html-web-widget-element/#createrenderroot">createRenderRoot</a> 应用渲染节点的勾子</li>
+</ul>
+</li>
+<li><a href="../../interfaces/web-widget-dependencies/">WebWidgetDependencies</a> 可以扩展应用运行所需的接口</li>
+</ul>
 
   
     <div class="content-footer">
@@ -343,6 +347,5 @@
 <script type="module" src="../../../../7260640b.js"></script>
 <script type="module" src="../../../../b0ea14e1.js"></script>
 <script type="module" src="../../../../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../../../../94f1c8673.js" mdjs-setup=""></script>
 
 </body></html>

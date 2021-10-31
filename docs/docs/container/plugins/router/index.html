@@ -269,7 +269,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>vue-router<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/vue-router.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">inactive</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <p>为 Web Widget 容器添加 <code>inactive</code> 属性，让其不再受 DOM 生命周期控制，以便让交给路由控制它的挂载与卸载行为。</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token string">'@web-widget/core'</span><span class="token punctuation">;</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
 <span class="token keyword module">import</span> <span class="token punctuation">{</span> collection<span class="token punctuation">,</span> navigate<span class="token punctuation">,</span> history <span class="token punctuation">}</span> <span class="token keyword module">from</span>  <span class="token string">'@web-widget/router'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// 注册应用</span>

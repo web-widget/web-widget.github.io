@@ -55,8 +55,6 @@
 <link rel="preload" href="../../../9e9e2b78.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../b0ea14e1.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../94f1c8675.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../77d62c06.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -183,11 +181,25 @@
 </li>
 <li class="menu-item current">
 <a href="/guides/architecture/cdn/">CDN</a>
-
+<ul>
+  <li class="menu-item anchor">
+    <a href="#始终让-web-widget-应用保持最新版本" class="anchor">始终让 Web Widget 应用保持最新版本</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#允许-web-widget-应用修复-bug" class="anchor">允许 Web Widget 应用修复 BUG</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#使用固定的版本" class="anchor">使用固定的版本</a>
+  </li>
+</ul>
 
 </li>
 <li class="menu-item">
 <a href="/guides/architecture/shared-dependencies/">共享依赖</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/plugin/">插件系统</a>
 
 </li></ul>
 </li></ul>
@@ -210,21 +222,16 @@
         <main class="markdown-body">
   
     <h1 id="架构-cdn"><a class="anchor" href="#架构-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>架构: CDN</h1>
-<p>一些公共 CDN 提供了自动更新的机制，例如 <a href="https://www.jsdelivr.com">jsdelivr</a>，你可以通过它实现 Web Widget 应用的自动升级。</p>
-<p>始终使用最新版本：</p>
+<p>Web Widget 应用推荐托管在 NPM 上，这使得可以直接使用公共 CDN 加载它。由于一些公共 CDN 提供了自动更新的机制，例如 <a href="https://www.jsdelivr.com">jsdelivr</a>，你可以通过它实现 Web Widget 应用的自动升级。</p>
+<h2 id="始终让-web-widget-应用保持最新版本"><a class="anchor" href="#始终让-web-widget-应用保持最新版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>始终让 Web Widget 应用保持最新版本</h2>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>以兼容性的方式自动更新：</p>
+<h2 id="允许-web-widget-应用修复-bug"><a class="anchor" href="#允许-web-widget-应用修复-bug"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>允许 Web Widget 应用修复 BUG</h2>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget@2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>禁止更新：</p>
+<h2 id="使用固定的版本"><a class="anchor" href="#使用固定的版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用固定的版本</h2>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget@2.0.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<inline-notification type="tip">
-<p>我们正在构建针对 Web Widget 应用优化过的 CDN。</p>
-</inline-notification>
-        
-      
 
   
     <div class="content-footer">
@@ -325,6 +332,5 @@
 <script type="module" src="../../../7260640b.js"></script>
 <script type="module" src="../../../b0ea14e1.js"></script>
 <script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../../../94f1c8675.js" mdjs-setup=""></script>
 
 </body></html>
