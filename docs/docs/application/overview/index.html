@@ -412,10 +412,10 @@
 <p><a href="https://single-spa.js.org/">single-spa</a> 是一个非常优秀的微前端解决方案，它对 Web Widget 的应用格式设计产生了关键影响：生命周期函数沿用了 <a href="https://single-spa.js.org/">single-spa</a> 的设计。</p>
 <p>对 <a href="https://single-spa.js.org/">single-spa</a> 应用格式主要的改进：</p>
 <ul>
-<li>支持多例的形式 <code>export default () =&gt; {}</code>，并且作为推荐的方式。因为 Web Widget 应用将允许多个实例存在</li>
-<li>定义了获取渲染目标的接口 <a href="../interface/#container"><code>container</code></a></li>
-<li>定义获取数据的接口 <a href="../interface/#data"><code>data</code></a></li>
-<li>删除了接口 <code>singleSpa</code>。应用应当作为独立的格式，和具体的容器实现无关</li>
+<li>支持 <code>export default () =&gt; ({/* life cycle */})</code> 形式，并且作为推荐的方式。因为容器通常支持多实例运行</li>
+<li>明确定义了获取渲染目标的接口 <a href="../interface/#container"><code>container</code></a></li>
+<li>明确定义获取数据的接口 <a href="../interface/#data"><code>data</code></a></li>
+<li>删除了接口 <code>singleSpa</code>。应用应当作为独立的格式存在，不应该与具体的容器实现耦合</li>
 <li>删除了接口 <code>mountParcel</code>。Web Widget 的应用格式抽象了 <a href="https://single-spa.js.org/">single-spa</a> 中 <code>application</code> 与 <code>parcel</code> 的概念，因此无须再保留 <code>parcel</code> 概念</li>
 </ul>
 
