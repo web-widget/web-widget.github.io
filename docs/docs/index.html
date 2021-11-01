@@ -50,7 +50,7 @@
 
   
 
-<link rel="preload" href="../7260640b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../3ccdef8f.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../c896c369.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../9e9e2b78.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../b0ea14e1.js" as="script" crossorigin="anonymous">
@@ -143,6 +143,17 @@
     
       <rocket-navigation>
   <ul><li class="menu-item">
+<a href="/docs/application/">应用</a>
+<ul><li class="menu-item">
+<a href="/docs/application/overview/">概述</a>
+
+</li>
+<li class="menu-item">
+<a href="/docs/application/interface/">接口</a>
+
+</li></ul>
+</li>
+<li class="menu-item">
 <a href="/docs/container/">容器</a>
 <ul><li class="menu-item">
 <a href="/docs/container/overview/">概述</a>
@@ -199,17 +210,6 @@
 </li></ul>
 </li>
 <li class="menu-item">
-<a href="/docs/application/">应用</a>
-<ul><li class="menu-item">
-<a href="/docs/application/overview/">概述</a>
-
-</li>
-<li class="menu-item">
-<a href="/docs/application/interface/">接口</a>
-
-</li></ul>
-</li>
-<li class="menu-item">
 <a href="/docs/manifest/">清单</a>
 <ul><li class="menu-item">
 <a href="/docs/manifest/overview/">概述</a>
@@ -237,35 +237,11 @@
     <h1 id="文档"><a class="anchor" href="#文档"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>文档</h1>
 <p>我们的文档是手工制作和优化的，可用做手册，以便在需要时查找详细信息。</p>
 <p>如需更多指导性学习体验，请访问我们的<a href="../guides/">指南</a>。</p>
-<h2 id="概念"><a class="anchor" href="#概念"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>概念</h2>
-<p>Web Widget 技术体系由如下三个关键部分组成：</p>
-<h3 id="容器"><a class="anchor" href="#容器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器</h3>
-<p>Web Widget 容器是一个 HTML 标签，它用来运行应用。</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
-<p>详情见<a href="./container/overview/">容器文档</a>。</p>
-<h3 id="应用"><a class="anchor" href="#应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用</h3>
-<p>Web Widget 应用即 <code>&lt;web-widget src="app.widget.js"&gt;</code> 中 <code>src</code> 定义的小挂件入口文件，你可以使用任何前端技术来开发它，例如 Lit、React、Vue 等。它的格式：</p>
-<pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
-<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">unload</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>详情见<a href="./application/overview/">应用文档</a>。</p>
-<h3 id="清单"><a class="anchor" href="#清单"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>清单</h3>
-<p>Web Widget 定义了应用的描述规范，它使用 NPM package.json 描述了应用名字、图标等信息，以便能够支持不同的应用市场展示。例如：</p>
-<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
-  <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"app"</span><span class="token punctuation">,</span>
-  <span class="token property">"version"</span><span class="token operator">:</span> <span class="token string">"0.0.1"</span><span class="token punctuation">,</span>
-  <span class="token property">"main"</span><span class="token operator">:</span> <span class="token string">"dist/umd/index.widget.js"</span><span class="token punctuation">,</span>
-  <span class="token property">"……"</span><span class="token operator">:</span> <span class="token string">"……"</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>详情见<a href="./manifest/overview/">清单文档</a>。</p>
+<ul>
+<li><a href="./application/overview/">应用文档</a></li>
+<li><a href="./container/overview/">容器文档</a></li>
+<li><a href="./manifest/overview/">清单文档</a></li>
+</ul>
 
   
     <button id="layout-index-open-navigation" class="call-to-action" data-action="trigger-mobile-menu">
@@ -365,7 +341,7 @@
   
 
 
-<script type="module" src="../7260640b.js"></script>
+<script type="module" src="../3ccdef8f.js"></script>
 <script type="module" src="../b0ea14e1.js"></script>
 <script type="module" src="../d15d5a5d.js" inject-service-worker=""></script>
 
