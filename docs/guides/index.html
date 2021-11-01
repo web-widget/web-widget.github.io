@@ -55,8 +55,6 @@
 <link rel="preload" href="../9e9e2b78.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../b0ea14e1.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../94f1c8674.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../77d62c06.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -229,7 +227,7 @@
 <h2 id="理解-web-widget"><a class="anchor" href="#理解-web-widget"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>理解 Web Widget</h2>
 <p>Web Widget 由如下三个关键部分组成：</p>
 <h3 id="应用"><a class="anchor" href="#应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用</h3>
-<p>Web Widget 应用即 <code>&lt;web-widget src="app.widget.js"&gt;</code> 中 <code>src</code> 定义的小挂件入口文件，它和具体技术栈、微服务容器无关，你可以使用任何前端技术来提供服务，例如 Lit、React、Vue 等。它的格式范式：</p>
+<p>Web Widget 应用是前端微服务的一种具象的表达，即 <code>&lt;web-widget src="app.widget.js"&gt;</code> 中 <code>src</code> 定义的小挂件入口文件，它和具体技术栈、微服务容器无关，你可以使用任意技术栈开发它，例如 Lit、React、Vue 等。它的格式范式：</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
 <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
@@ -240,9 +238,6 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>详情见<a href="../docs/application/overview/">应用文档</a>。</p>
-<inline-notification type="tip">
-<p>Web Widget 应用格式是对前端微服务的一种具体的实现方式，后续文档中将不再额外说明。</p>
-</inline-notification>
 <h3 id="容器"><a class="anchor" href="#容器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器</h3>
 <p>Web Widget 容器是一个 HTML 标签，它用来运行应用。</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
@@ -273,8 +268,6 @@
 <li><a href="./developing/getting-started/">应用开发入门</a>：了解如何开发 Web Widget 应用</li>
 <li><a href="./architecture/getting-started/">容器化入门</a>：了解如何在 Web 工程中实施容器化</li>
 </ul>
-        
-      
 
   
     <button id="layout-index-open-navigation" class="call-to-action" data-action="trigger-mobile-menu">
@@ -377,6 +370,5 @@
 <script type="module" src="../3ccdef8f.js"></script>
 <script type="module" src="../b0ea14e1.js"></script>
 <script type="module" src="../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../94f1c8674.js" mdjs-setup=""></script>
 
 </body></html>
