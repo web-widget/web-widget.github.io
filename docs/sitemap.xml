@@ -68,18 +68,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/container/plugins/system-loader/</loc>
-      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/plugins/umd-loader/</loc>
-      <lastmod>2021-10-28T02:34:28.084Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/docs/container/tag/</loc>
       <lastmod>2021-10-28T02:34:28.084Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -226,6 +214,18 @@
     <url>
       <loc>http://localhost:8000/guides/architecture/plugin/</loc>
       <lastmod>2021-10-31T05:07:52.017Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/system-loader/</loc>
+      <lastmod>2021-11-05T05:03:14.981Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/plugins/umd-loader/</loc>
+      <lastmod>2021-11-05T05:03:18.191Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
