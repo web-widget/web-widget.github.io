@@ -134,19 +134,13 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/developing/code-examples/</loc>
+      <loc>http://localhost:8000/guides/developing/development/</loc>
       <lastmod>2021-10-28T02:34:28.087Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
     <url>
       <loc>http://localhost:8000/guides/developing/getting-started/</loc>
-      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/going-buildless/</loc>
       <lastmod>2021-10-28T02:34:28.087Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -159,12 +153,6 @@
   
     <url>
       <loc>http://localhost:8000/guides/developing/publishing/</loc>
-      <lastmod>2021-10-28T02:34:28.087Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/testing/</loc>
       <lastmod>2021-10-28T02:34:28.087Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>

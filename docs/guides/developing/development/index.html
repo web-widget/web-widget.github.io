@@ -10,11 +10,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>容器化: 运行第三方代码: Web Widget</title>
-<meta property="og:title" content="容器化: 运行第三方代码: Web Widget">
+<title>应用开发: 开发: Web Widget</title>
+<meta property="og:title" content="应用开发: 开发: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="http://localhost:8000/guides/architecture/sandbox/">
+<link rel="canonical" href="http://localhost:8000/guides/developing/development/">
 
 
 
@@ -34,8 +34,8 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/893684b1.png">
-<meta property="og:url" content="http://localhost:8000/guides/architecture/sandbox/">
+<meta property="og:image" content="http://localhost:8000/2bd120eb.png">
+<meta property="og:url" content="http://localhost:8000/guides/developing/development/">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -142,14 +142,25 @@
 
     
       <rocket-navigation>
-  <ul><li class="menu-item">
+  <ul><li class="menu-item active">
 <a href="/guides/developing/">应用开发</a>
 <ul><li class="menu-item">
 <a href="/guides/developing/getting-started/">入门</a>
 
 </li>
-<li class="menu-item">
+<li class="menu-item current">
 <a href="/guides/developing/development/">开发</a>
+<ul>
+  <li class="menu-item anchor">
+    <a href="#web-widget-cli" class="anchor">Web Widget CLI</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#运行服务器" class="anchor">运行服务器</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#裸模块导入" class="anchor">裸模块导入</a>
+  </li>
+</ul>
 
 </li>
 <li class="menu-item">
@@ -157,7 +168,7 @@
 
 </li></ul>
 </li>
-<li class="menu-item active">
+<li class="menu-item">
 <a href="/guides/architecture/">容器化</a>
 <ul><li class="menu-item">
 <a href="/guides/architecture/getting-started/">入门</a>
@@ -175,16 +186,8 @@
 <a href="/guides/architecture/cdn/">CDN</a>
 
 </li>
-<li class="menu-item current">
+<li class="menu-item">
 <a href="/guides/architecture/sandbox/">运行第三方代码</a>
-<ul>
-  <li class="menu-item anchor">
-    <a href="#安装" class="anchor">安装</a>
-  </li>
-  <li class="menu-item anchor">
-    <a href="#使用" class="anchor">使用</a>
-  </li>
-</ul>
 
 </li>
 <li class="menu-item">
@@ -210,44 +213,36 @@
       
         <main class="markdown-body">
   
-    <h1 id="容器化-运行第三方代码"><a class="anchor" href="#容器化-运行第三方代码"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 运行第三方代码</h1>
-<p>开启 <code>sandboxed</code> 功能，并且设置内容安全策略。</p>
-<h2 id="安装"><a class="anchor" href="#安装"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>安装</h2>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @web-widget/sandbox --save
+    <h1 id="应用开发-开发"><a class="anchor" href="#应用开发-开发"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用开发: 开发</h1>
+<p>浏览器在过去几年中得到了很大改进，现在可以使用浏览器的原生模块加载器进行 Web Widget 应用开发，而无需复杂的构建工具。</p>
+<h2 id="web-widget-cli"><a class="anchor" href="#web-widget-cli"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget CLI</h2>
+<p>Web Widget CLI 是一个项目生成器，它为如下技术栈提供了可开箱即用的模板代码：</p>
+<ul>
+<li>Lit</li>
+<li>Vue2 / Vue3</li>
+<li>React</li>
+<li>Vanilla</li>
+</ul>
+<p>请执行如下命令启动它：</p>
+<pre class="language-bash"><code class="language-bash">npx @web-widget/create-web-widget
 </code></pre>
-<h2 id="使用"><a class="anchor" href="#使用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用</h2>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span>
-  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span>
-  <span class="token attr-name">sandboxed</span>
-  <span class="token attr-name">csp</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>
-    default-src 'none';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net web-sandbox.js.org;
-    style-src 'self' 'unsafe-inline' cdn.jsdelivr.net;
-    navigate-to 'self' web-sandbox.js.org;
-  <span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<h2 id="运行服务器"><a class="anchor" href="#运行服务器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>运行服务器</h2>
+<p>生成器使用 <a href="https://vitejs.dev">Vite</a> 作为开发工具。要在项目中运行服务器，请执行以下命令：</p>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> run dev
 </code></pre>
-<p>如果父节点的 Web Widget 启用了 <code>sandboxed</code> 属性，子节点（包括 ShadowRoot）中的 Web Widget 也将继承沙盒的权限。</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span>
-  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span>
-  <span class="token attr-name">sandboxed</span>
-  <span class="token attr-name">csp</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>
-    default-src 'none';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net web-sandbox.js.org;
-    style-src 'self' 'unsafe-inline' cdn.jsdelivr.net;
-    navigate-to 'self' web-sandbox.js.org;
-  <span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    #shadow-root (closed)
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<p>当你编辑代码后，浏览器将自动重新加载。</p>
+<h2 id="裸模块导入"><a class="anchor" href="#裸模块导入"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>裸模块导入</h2>
+<p>javascript 项目中的常见做法是使用所谓的“裸模块导入”。这些是 <code>imports</code> 语句，它仅指定包的名称或包内的文件。</p>
+<p>例如：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> foo <span class="token keyword module">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
 </code></pre>
-<p>更多请阅读 <a href="../../../docs/container/plugins/sandbox/">Sandbox 插件文档</a>。</p>
+<p>当 <code>node_modules</code> 文件夹中的依赖项需要引用其他包时，此类导入很有用。不幸的是，今天的浏览器不理解这种导入方式，需要某种形式的预处理来解析导入以引用实际文件位置。幸运的是 <a href="https://vitejs.dev">Vite</a> 已经自动帮我们处理了这个问题。</p>
+<p>将来，像 <a href="https://github.com/WICG/import-maps">import maps</a> 这样的标准将允许浏览器理解这些类型的导入，而无需转换步骤。对于目前，我们有一个可以过渡到标准的方案，你可以通过<a href="../publishing/">发布文档</a>了解到如何处理浏览器兼容问题。</p>
 
   
     <div class="content-footer">
   <p>
-    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/architecture/sandbox.md">在 GitHub 上一起编辑此页面</a>
+    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/developing/development.md">在 GitHub 上一起编辑此页面</a>
   </p>
 </div>
 
