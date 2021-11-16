@@ -156,9 +156,6 @@
 <a href="/guides/developing/publishing/">发布</a>
 <ul>
   <li class="menu-item anchor">
-    <a href="#构建" class="anchor">构建</a>
-  </li>
-  <li class="menu-item anchor">
     <a href="#提供-esm-版本" class="anchor">提供 esm 版本</a>
   </li>
   <li class="menu-item anchor">
@@ -203,7 +200,7 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/plugin/">构建插件系统</a>
+<a href="/guides/architecture/plugin/">构建插件容器</a>
 
 </li></ul>
 </li></ul>
@@ -226,28 +223,22 @@
         <main class="markdown-body">
   
     <h1 id="应用开发-发布"><a class="anchor" href="#应用开发-发布"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用开发: 发布</h1>
-<p>大多数情况下，我们推荐将 Web Widget 应用发布在 NPM 中，这样可以随时通过 CDN 集成。</p>
-<p>当你准备好将包发布到 NPM 时，请确保你已解决以下建议，以确保你发布的代码尽可能易于用户使用。你的包应该已经有演示、文档、<a href="../testing/">测试</a>等，因为每一个都在为你的工作做出最清晰的例子中发挥作用，概述将工作集成到其他项目的最简单途径，并确保包总体而言，它具有适应时间变化的弹性。</p>
-<h2 id="构建"><a class="anchor" href="#构建"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>构建</h2>
-<p><a href="../development/">Web Widget CLI</a> 会在 package.json 中增加 <code>build</code> 命令，运行它即可构建出符合要求的产物。</p>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> run build
-</code></pre>
+<p>大多数情况下，我们推荐将 Web Widget 应用发布在 NPM 中，这样可以随时通过 CDN 集成。当你准备好将包发布到 NPM 时，请确保按照本文档提供的建议，以确保它具有适应时间变化的弹性。</p>
+<p>你可以通过 <a href="../development/">Web Widget CLI</a> 来简化步骤，你只需要运行 <code>npm run build</code> 即可得到待发布的产物。</p>
 <h2 id="提供-esm-版本"><a class="anchor" href="#提供-esm-版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>提供 esm 版本</h2>
 <p>从一开始就写好标准的 ECMAScript，自然而然就会发布标准的 ECMAScript。但是，如果你选择使用 TypeScript 或各种新兴规范或 API 编写组件，请务必在发布前将代码转换为标准 ECMAScript。如果你使用非标准语法；将其（且仅此）转译为合理的现代水平（例如 <a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md">TC39 Stage 4</a> 和/或可用的跨浏览器），以减少在包含你的包的页面的任何最终生产交付中包含冗长或重复代码的可能性。</p>
 <h2 id="提供-system-版本"><a class="anchor" href="#提供-system-版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>提供 system 版本</h2>
-<p>目前只有最新的 Chrome 浏览器支持 <a href="https://github.com/WICG/import-maps">import maps</a>，而 Web Widget 沙盒模式也未能支持 ES module 格式，因此为了能够更好的兼容，应当额外准备一份 <code>system</code> 格式版本。</p>
-<p><code>system</code> 格式和构建工具无关，无论是 Webpack 或者 Rollup 都很好的支持它，它可以作为全面应用 ES module 之前的过度格式。<code>system</code> 支持使用<a href="https://github.com/WICG/import-maps">裸模块</a>导入，Web Widget 沙盒模式也支持它。</p>
+<p>由于目前只有最新的 Chrome 浏览器支持 <a href="https://github.com/WICG/import-maps">import maps</a>，因此为了能够为了解决兼容问题，应当额外准备一份 <code>system</code> 格式版本。</p>
+<p><code>system</code> 格式和构建工具无关，无论是 Webpack 或者 Rollup 都内置了它，<code>system</code> 格式可以作为全面应用 ES module 之前的过度格式。<code>system</code> 支持使用<a href="https://github.com/WICG/import-maps">裸模块</a>导入，并且 Web Widget 沙盒模式也支持它。</p>
 <h2 id="打包好所有依赖"><a class="anchor" href="#打包好所有依赖"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>打包好所有依赖</h2>
 <p>默认情况下，Web Widget 应用的使用者不应该关心依赖处理，而应该是直接可用，所以你应当尽可能的将依赖打包在一起，避免宿主无法处理依赖的情况。</p>
 <h2 id="使用语义化版本管理"><a class="anchor" href="#使用语义化版本管理"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用语义化版本管理</h2>
-<p>Web Widget 应用的宿主可能采用在公共 CDN 在浏览器上自动更新版本的方案，而不需要经过构建、测试等流程，这意味着要求 Web Widget 应用开发者必须严格遵循语义化版本：应用的外观发生重大变化应当升级主版本号。</p>
+<p>Web Widget 应用的宿主可能会允许使用 CDN 自动更新的功能，这意味着 Web Widget 应用都应当随时处于高可用、可预期的状态，因此开发者必须严格遵循语义化版本，应用的<strong>外观</strong>或者功能发生重大变化应当以升级主版本号来发布，以便用户能够做出符合预期的选择。</p>
 <h2 id="可选源映射"><a class="anchor" href="#可选源映射"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>可选：源映射</h2>
-<p>如果你选择在 TypeScript 中工作，或者使用比上述标准更新的语法，那么包含源映射可以有助于用户更好的理解它。</p>
+<p>如果你选择在 TypeScript 中工作，或者使用比上述标准更新的语法，那么包含源映射可以有助于开发者更好的理解它。</p>
 <h2 id="可选共享依赖"><a class="anchor" href="#可选共享依赖"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>可选：共享依赖</h2>
-<p>如果 Web Widget 应用工作在特定环境下，你明确知道宿主提供公共包的名字，这样你可以通过裸模块的方式引入这些包，并且在构建工具中排除这些包，以便和宿主共享这些包。</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token maybe-class-name">Vue</span> <span class="token keyword module">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
-</code></pre>
-<p>宿主如何实现共享依赖？详情请前往<a href="../../architecture/shared-dependencies/">依赖共享文档</a>。</p>
+<p>如果 Web Widget 应用工作在特定环境下，你明确知道宿主提供公共包的名字，这样你可以通过裸模块的方式引入这些包，并且在构建工具中排除这些包，以便和宿主共享公共依赖的浏览器缓存。</p>
+<p>详情请前往<a href="../../architecture/shared-dependencies/">依赖共享文档</a>了解如何部署。</p>
 
   
     <div class="content-footer">

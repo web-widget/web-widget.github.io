@@ -10,8 +10,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>容器化: 构建插件系统: Web Widget</title>
-<meta property="og:title" content="容器化: 构建插件系统: Web Widget">
+<title>容器化: 构建插件容器: Web Widget</title>
+<meta property="og:title" content="容器化: 构建插件容器: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
 <link rel="canonical" href="http://localhost:8000/guides/architecture/plugin/">
@@ -34,7 +34,7 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/8bb85a56.png">
+<meta property="og:image" content="http://localhost:8000/abf44c14.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/plugin/">
 
 <meta name="twitter:card" content="summary_large_image">
@@ -180,7 +180,7 @@
 
 </li>
 <li class="menu-item current">
-<a href="/guides/architecture/plugin/">构建插件系统</a>
+<a href="/guides/architecture/plugin/">构建插件容器</a>
 <ul>
   <li class="menu-item anchor">
     <a href="#示例" class="anchor">示例</a>
@@ -210,32 +210,37 @@
       
         <main class="markdown-body">
   
-    <h1 id="容器化-构建插件系统"><a class="anchor" href="#容器化-构建插件系统"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 构建插件系统</h1>
-<p>Web Widget 容器以及应用格式是建立在插件的设计模式之上，因此也可以通过扩展容器而实现 Web 应用中的插件机制。</p>
+    <h1 id="容器化-构建插件容器"><a class="anchor" href="#容器化-构建插件容器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 构建插件容器</h1>
+<p>当你需要为你的应用实现专有的插件体系的时候，我们推荐你扩展 Web Widget 容器来实现你的需求，这样你可以不用花精力建设插件开发的工具链，因为 Web Widget 的工具链已经为你准备好，你要做的事情只有两点：</p>
+<ul>
+<li>扩展 Web Widget 容器，实现专有的插件容器标签，以便和常规的 Web Widget 应用区分</li>
+<li>设计插件的 API，并且通过插件容器注入依赖</li>
+</ul>
 <h2 id="示例"><a class="anchor" href="#示例"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>示例</h2>
-<p>为某个 Web 编辑器应用开发一个插件系统，它支持插件操作文档，允许插件使用 <code>setDocumentTitle()</code> 方法。</p>
-<h3 id="开发插件系统"><a class="anchor" href="#开发插件系统"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>开发插件系统</h3>
+<p>为某个 Web 编辑器应用开发一个插件系统，它支持插件操作编辑器的文档格式。我们通过 3 个步骤为你演示达成目标的关键的环节：</p>
+<h3 id="1-制作插件的容器"><a class="anchor" href="#1-制作插件的容器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>1. 制作插件的容器</h3>
+<p>Web Widget 容器是一个 Web components，它的 <code>class</code> 是 <code>HTMLWebWidgetElement</code>，通过继承它创建一个新的插件容器自定义标签，这样可以更好的识别它：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">WebWidgetDependencies</span><span class="token punctuation">,</span> <span class="token maybe-class-name">HTMLWebWidgetElement</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
-</code></pre>
-<p>首先，我们通过扩展 <code>WebWidgetDependencies</code> 来设计插件所依赖的接口：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">PluginDependencies</span> <span class="token keyword">extends</span> <span class="token class-name">WebWidgetDependencies</span> <span class="token punctuation">{</span>
-  <span class="token function">setDocumentTitle</span><span class="token punctuation">(</span><span class="token parameter">title</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    editor<span class="token punctuation">.</span><span class="token property-access">module</span><span class="token punctuation">.</span><span class="token property-access">title</span> <span class="token operator">=</span> title<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>然后，通过继承 <code>HTMLWebWidgetElement</code> 创建一个新的插件容器自定义标签，它的目的是为插件注入上面实现的 <code>PluginDependencies</code> 类：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">HTMLEditorPluginElement</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLWebWidgetElement</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">class</span> <span class="token class-name">HTMLEditorPluginElement</span> <span class="token keyword">extends</span> <span class="token class-name">HTMLWebWidgetElement</span> <span class="token punctuation">{</span>
   <span class="token function">createDependencies</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">PluginDependencies</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 customElements<span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">'editor-plugin'</span><span class="token punctuation">,</span> <span class="token maybe-class-name">HTMLEditorPluginElement</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>最后，在 Web 编辑器中插入刚才设计的插件容器标签：</p>
+<p>于是你有了一个 <code>&lt;editor-plugin&gt;</code> 标签：</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>editor-plugin</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./main.plugin.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>editor-plugin</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h3 id="开发第一个插件"><a class="anchor" href="#开发第一个插件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>开发第一个插件</h3>
+<h3 id="2-实现插件依赖注入"><a class="anchor" href="#2-实现插件依赖注入"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>2. 实现插件依赖注入</h3>
+<p>通过扩展 <code>WebWidgetDependencies</code> 类，可以为插件注入运行所需的依赖，例如允许插件使用 <code>setDocumentTitle()</code> 方法来操作文档的标题：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">PluginDependencies</span> <span class="token keyword">extends</span> <span class="token class-name">WebWidgetDependencies</span> <span class="token punctuation">{</span>
+  <span class="token function">setDocumentTitle</span><span class="token punctuation">(</span><span class="token parameter">title</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    editor<span class="token punctuation">.</span><span class="token property-access">module</span><span class="token punctuation">.</span><span class="token property-access">title</span> <span class="token operator">=</span> title<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="3-开发第一个插件"><a class="anchor" href="#3-开发第一个插件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>3. 开发第一个插件</h3>
 <pre class="language-js"><code class="language-js"><span class="token comment">// main.plugin.js</span>
 <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span>
@@ -252,7 +257,7 @@ customElements<span class="token punctuation">.</span><span class="token method 
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="了解更多"><a class="anchor" href="#了解更多"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>了解更多</h2>
-<p>Web Widget 容器提供了良好的扩展抽象，你可以通过<a href="../../../docs/container/writing-plugins/overview/">编写插件文档</a>了解细节。</p>
+<p>你可以通过<a href="../../../docs/container/writing-plugins/overview/">编写插件文档</a>了解细节。</p>
 
   
     <div class="content-footer">
