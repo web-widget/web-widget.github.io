@@ -213,16 +213,16 @@
 <h2 id="最佳实践"><a class="anchor" href="#最佳实践"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>最佳实践</h2>
 <p>共享依赖有两种主流方法：</p>
 <ol>
-<li>导入地图映射</li>
+<li><a href="https://github.com/WICG/import-maps">导入地图映射</a></li>
 <li>模块联邦</li>
 </ol>
-<p>你可以使用其中之一，也可以同时使用两者。我们目前只推荐使用导入地图映射，原因：</p>
+<p>你可以使用其中之一，也可以同时使用两者。我们目前只推荐使用<a href="https://github.com/WICG/import-maps">导入地图映射</a>映射，原因：</p>
 <ol>
-<li>它是浏览器标准，虽然目前支持它的浏览器不多，但现在可以通过 <code>system</code> 格式的加载器 <a href="https://github.com/systemjs/systemjs">SystemJS</a> 来支持</li>
-<li>模块联邦最大的问题是它是具体构建工具的私有标准，且目前只有 Webpack5 才能使用，并且目前为止它还处于一个不稳定的状态中</li>
+<li>它是浏览器标准，并且能够通过 <code>system</code> 格式以及对应的加载器 <a href="https://github.com/systemjs/systemjs">SystemJS</a> 来做到在生产环境中使用</li>
+<li>模块联邦是 Webpack5 私有格式，并且目前为止它还处于一个不稳定的状态中</li>
 </ol>
-<p>不得不承认，共享依赖并不是一个非常高深的技术话题，通过构建工具可以有非常多的实践方式，但当我们深入了解后发现似乎没有比 <code>system</code> 更好的方式了，虽然这很违反直觉——毕竟 Webpack 解决了一切的问题，当我们试图离开它的时候总是会不安。</p>
-<p><a href="https://github.com/systemjs/systemjs">SystemJS</a> 的导入地图映射示例：</p>
+<p>不得不承认，共享依赖并不是一个非常高深的技术话题，通过构建工具的帮助你可以找到很多种实践，但当我们深入了解后发现似乎没有比 <code>system</code> 更好的方式了，虽然这很违反直觉——毕竟 Webpack 解决了几乎一切的问题，而 <a href="https://github.com/systemjs/systemjs">SystemJS</a> 还不为人知。</p>
+<p><a href="https://github.com/systemjs/systemjs">SystemJS</a> 的<a href="https://github.com/WICG/import-maps">导入地图映射</a>示例：</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>systemjs-importmap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
 <span class="token punctuation">{</span>
   <span class="token string">"imports"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
@@ -231,7 +231,9 @@
 <span class="token punctuation">}</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>了解如何在让 Web Widget 容器支持 <code>system</code> 格式：<a href="../../../docs/container/plugins/system-loader/">System-loader 文档</a></p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Web Widget 容器可以通过插件来支持 <code>system</code> 格式：<a href="../../../docs/container/plugins/system-loader/">System-loader 文档</a></p>
 
   
     <div class="content-footer">
