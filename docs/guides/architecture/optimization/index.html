@@ -1,0 +1,418 @@
+<!DOCTYPE html><html lang="en" dir="ltr"><head>
+  
+    <link rel="stylesheet" href="../../../b1403e10.css">
+  
+    
+
+  
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>容器化: 优化: Web Widget</title>
+<meta property="og:title" content="容器化: 优化: Web Widget">
+
+<meta name="generator" content="rocket 0.1">
+<link rel="canonical" href="http://localhost:8000/guides/architecture/optimization/">
+
+
+
+<meta name="description" content="网页的小挂件技术体系。">
+<meta property="og:description" content="网页的小挂件技术体系。">
+
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../../assets/favicon-16x16.png">
+<link rel="manifest" href="../../../assets/webmanifest.json">
+<link rel="mask-icon" href="../../../assets/safari-pinned-tab.svg" color="#3f93ce">
+<meta name="msapplication-TileColor" content="#1d3557">
+<meta name="theme-color" content="#1d3557">
+
+  
+    <meta property="og:site_name" content="Web Widget">
+<meta property="og:type" content="website">
+
+<meta property="og:image" content="http://localhost:8000/0a1d67ce.png">
+<meta property="og:url" content="http://localhost:8000/guides/architecture/optimization/">
+
+<meta name="twitter:card" content="summary_large_image">
+
+  
+    <link rel="stylesheet" href="../../../5f77f4be.css">
+<link rel="stylesheet" href="../../../490f016e.css">
+<link rel="stylesheet" href="../../../a0513237.css">
+<link rel="stylesheet" href="../../../a27aa5f7.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
+
+  
+
+<link rel="preload" href="../../../3ccdef8f.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../c896c369.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../9e9e2b78.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../b0ea14e1.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
+</head>
+
+  
+
+  
+  <body layout="layout-sidebar">
+  
+
+    
+      <header id="main-header">
+  <div class="content-area">
+    
+      <button id="mobile-menu-trigger" data-action="trigger-mobile-menu">
+	<span class="sr-only">Show Menu</span>
+	      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon">
+        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
+      </svg>
+
+</button>
+
+    
+      
+	<a class="logo-link" href="/">
+  <img src="../../../35ded306.svg" alt="O with occluded right edge to appear also as a C">
+  <span>Web Widget</span>
+</a>
+
+
+
+    
+      <rocket-search class="search" json-url="/_merged_assets/_static/rocket-search-index.json">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" style="width: 25px;">
+    <path d="M51.6 96.7c11 0 21-3.9 28.8-10.5l35 35c.8.8 1.8 1.2 2.9 1.2s2.1-.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-35-35c6.5-7.8 10.5-17.9 10.5-28.8 0-24.9-20.2-45.1-45.1-45.1-24.8 0-45.1 20.3-45.1 45.1 0 24.9 20.3 45.1 45.1 45.1zm0-82c20.4 0 36.9 16.6 36.9 36.9C88.5 72 72 88.5 51.6 88.5S14.7 71.9 14.7 51.6c0-20.3 16.6-36.9 36.9-36.9z"></path>
+  </svg>
+</rocket-search>
+
+
+
+    
+      
+  <a href="/guides/" class="
+          
+           active 
+        ">指南</a>
+  <a href="/docs/" class="
+          
+          
+        ">文档</a>
+
+    
+      <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
+
+
+    
+      
+	<a class="social-link" href="https://github.com/web-widget/web-widget" aria-label="Web Widget on GitHub" rel="noopener noreferrer" target="_blank">
+		<span class="sr-only">GitHub</span>
+		
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 16" fill="none">
+  <title>GitHub</title>
+  <path fill="currentColor" fill-rule="evenodd" d="M8.18391.249268C3.82241.249268.253906 3.81777.253906 8.17927c0 3.46933 2.279874 6.44313 5.451874 7.53353.3965.0991.49563-.1983.49563-.3965v-1.3878c-2.18075.4956-2.67638-.9912-2.67638-.9912-.3965-.8922-.89212-1.1895-.89212-1.1895-.69388-.4957.09912-.4957.09912-.4957.793.0992 1.1895.793 1.1895.793.69388 1.2887 1.88338.8922 2.27988.6939.09912-.4956.29737-.8921.49562-1.0904-1.78425-.1982-3.5685-.8921-3.5685-3.96496 0-.89212.29738-1.586.793-2.08162-.09912-.19825-.3965-.99125.09913-2.08163 0 0 .69387-.19825 2.18075.793.59475-.19825 1.28862-.29737 1.9825-.29737.69387 0 1.38775.09912 1.98249.29737 1.4869-.99125 2.1808-.793 2.1808-.793.3965 1.09038.1982 1.88338.0991 2.08163.4956.59475.793 1.28862.793 2.08162 0 3.07286-1.8834 3.66766-3.66764 3.86586.29737.3965.59474.8921.59474 1.586v2.1808c0 .1982.0991.4956.5948.3965 3.172-1.0904 5.4518-4.0642 5.4518-7.53353-.0991-4.3615-3.6676-7.930002-8.02909-7.930002z" clip-rule="evenodd"></path>
+</svg>
+
+		
+	</a>
+
+    
+  </div>
+</header>
+
+    
+
+    
+  <div id="content-wrapper">
+    <div class="content-area">
+      
+        <rocket-drawer id="sidebar">
+  <nav slot="content" id="sidebar-nav">
+    
+      <a class="logo-link" href="/">
+  <img src="../../../35ded306.svg" alt="O with occluded right edge to appear also as a C">
+  <span>Web Widget</span>
+</a>
+
+
+    
+      <rocket-navigation>
+  <ul><li class="menu-item">
+<a href="/guides/developing/">应用开发</a>
+<ul><li class="menu-item">
+<a href="/guides/developing/getting-started/">入门</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/development/">开发</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/publishing/">发布</a>
+
+</li></ul>
+</li>
+<li class="menu-item active">
+<a href="/guides/architecture/">容器化</a>
+<ul><li class="menu-item">
+<a href="/guides/architecture/getting-started/">入门</a>
+
+</li>
+<li class="menu-item current">
+<a href="/guides/architecture/optimization/">优化</a>
+<ul>
+  <li class="menu-item anchor">
+    <a href="#懒加载" class="anchor">懒加载</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#占位符" class="anchor">占位符</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#后备" class="anchor">后备</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#插槽" class="anchor">插槽</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#主题" class="anchor">主题</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#搜索引擎优化" class="anchor">搜索引擎优化</a>
+  </li>
+</ul>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/router/">路由驱动</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/shared-dependencies/">共享依赖</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/auto-update/">自动更新</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/sandbox/">运行第三方代码</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/plugin/">构建插件容器</a>
+
+</li></ul>
+</li></ul>
+  <div class="sidebar-bottom">
+  <hr>
+  <launch-dark-switch class="light-dark-switch" label="Toggle darkmode">Toggle darkmode</launch-dark-switch>
+
+
+  <a href="https://github.com/web-widget/web-widget/issues">帮助与反馈</a>
+</div>
+
+</rocket-navigation>
+
+    
+  </nav>
+</rocket-drawer>
+
+      
+      
+        <main class="markdown-body">
+  
+    <h1 id="容器化-优化"><a class="anchor" href="#容器化-优化"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 优化</h1>
+<p><a href="https://amp.dev">AMP</a> 的性能优先的工程设计为 Web Widget 的诞生提供了很多灵感，它的优化策略对采用 Web Widget 的网站也同样有效，一些推荐设置：</p>
+<ul>
+<li>HTML 中的布局、文本等关键元素通过服务器渲染，而 Web Widget 应用由浏览器渲染</li>
+<li>HTML 中的布局、文本等关键元素的 CSS 样式内嵌入在页面中</li>
+<li>文本等需要支持 SEO 的内容使用插槽</li>
+<li>为 Web Widget 容器预设置尺寸，避免渲染回流</li>
+<li>为 Web Widget 容器开启懒加载</li>
+<li>为 Web Widget 容器提供占位符</li>
+<li>为 Web Widget 容器提供后备</li>
+<li>为 Web Widget 容器的运行时文件采用异步加载</li>
+</ul>
+<p>更多相关信息可以参考 <a href="https://amp.dev">AMP</a> 的官网。</p>
+<h2 id="懒加载"><a class="anchor" href="#懒加载"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>懒加载</h2>
+<p>类似 <code>&lt;img&gt;</code> 标签，使用 <code>loading="lazy"</code> 属性可以让元素进入视图才加载。</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="占位符"><a class="anchor" href="#占位符"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>占位符</h2>
+<p><code>&lt;web-widget&gt;</code> 元素的直接子元素 <code>&lt;placeholder&gt;</code> 标签将充当占位符。</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>placeholder</span><span class="token punctuation">&gt;</span></span>
+    loading..
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>placeholder</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="后备"><a class="anchor" href="#后备"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>后备</h2>
+<p><code>fallback</code> 元素将充当 Web Widget 容器的后备占位符号。用途：</p>
+<ul>
+<li>浏览器不支持某个元素</li>
+<li>内容未能加载（例如，推文被删除）</li>
+<li>图片类型不受支持（例如，并非所有浏览器都支持 WebP）</li>
+</ul>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>video.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>fallback</span> <span class="token attr-name">hidden</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>This browser does not support the video element.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>fallback</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="插槽"><a class="anchor" href="#插槽"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>插槽</h2>
+<p>使用 <code>slot</code> 属性可以将元素在应用指定的位置渲染（渲染的位置由应用定义）：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Let's have some different text!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="主题"><a class="anchor" href="#主题"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>主题</h2>
+<p>应用通过 <code>:host()</code> 选择器可以实现主题的定义，容器可以控制切换主题。例如使用 <code>class</code> 来切换主题：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>you-theme<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+        <span class="token selector"><span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token class">.you-theme</span><span class="token punctuation">)</span> h3</span> <span class="token punctuation">{</span>
+          <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#FFF</span><span class="token punctuation">;</span>
+          <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#000</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>hello world<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="搜索引擎优化"><a class="anchor" href="#搜索引擎优化"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>搜索引擎优化</h2>
+<p>因为 Web Widget 容器是一个标准的 Web Component，因此它的 SEO 问题本质上是 JavaScript 和 Web Component 的 SEO 问题。社区中有两种实践方式：</p>
+<ul>
+<li>使用 <a href="https://developers.google.com/web/fundamentals/web-components/shadowdom#lightdom">Light DOM</a> 来描述关键内容</li>
+<li>使用 <a href="https://json-ld.org/">JSON-LD</a> 描述关键内容</li>
+</ul>
+
+  
+    <div class="content-footer">
+  <p>
+    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/architecture/optimization.md">在 GitHub 上一起编辑此页面</a>
+  </p>
+</div>
+
+  
+</main>
+
+      
+    </div>
+  </div>
+
+
+    
+      <footer id="main-footer">
+  
+    
+
+  
+    <div id="footer-menu">
+  <div class="content-area">
+    
+      <nav>
+        <h3>Discover</h3>
+        <ul>
+          
+            <li>
+              <a href="/discover/about/">关于</a>
+            </li>
+          
+            <li>
+              <a href="https://github.com/web-widget/web-widget/issues">帮助与反馈</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+      <nav>
+        <h3>Follow</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/web-widget/web-widget">GitHub</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+      <nav>
+        <h3>Support</h3>
+        <ul>
+          
+            <li>
+              <a href="https://github.com/web-widget/web-widget/blob/master/CONTRIBUTING.md">Contribute</a>
+            </li>
+          
+        </ul>
+      </nav>
+    
+  </div>
+</div>
+
+  
+</footer>
+
+    
+
+    
+  
+
+
+  <script>
+  window.__rocketServiceWorkerUrl = '/service-worker.js';
+</script>
+
+
+
+
+  
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-131782693-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-131782693-1');
+  </script>
+
+
+
+
+  
+
+
+<script type="module" src="../../../3ccdef8f.js"></script>
+<script type="module" src="../../../b0ea14e1.js"></script>
+<script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
+
+</body></html>

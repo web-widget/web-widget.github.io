@@ -281,7 +281,7 @@
 <pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @web-widget/sandbox --save
 </code></pre>
 <h2 id="使用"><a class="anchor" href="#使用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用</h2>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myWidget<span class="token punctuation">"</span></span> <span class="token attr-name">sandboxed</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span> <span class="token attr-name">sandboxed</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
 <span class="token keyword module">import</span> <span class="token string">'@web-widget/system-loader'</span><span class="token punctuation">;</span>
@@ -291,11 +291,7 @@
 <p>沙盒目前无法支持 ES module 的 Web Widget 应用格式，仅支持 <code>system</code> 或 <code>umd</code> 模块类型（需要安装对应的加载器插件）。</p>
 </blockquote>
 <h2 id="原理"><a class="anchor" href="#原理"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>原理</h2>
-<p>Web Widget 沙盒来源于 Web Sandbox：Web Sandbox 的目标是构建一个安全且轻量化的浏览器虚拟化容器，它采用使用 Web 标准技术来构建，它的使用场景：</p>
-<ul>
-<li>作为 Web 应用的插件的安全运行环境、提供开放式的插件系统</li>
-<li>让不同的技术栈、版本的应用能够在同一个页面中运行，避免陷入重构的泥潭</li>
-</ul>
+<p>Web Widget 沙盒来源于 Web Sandbox，Web Sandbox 是属于 Web Widget 的兄弟项目，它的目标是构建一个安全且轻量化的浏览器虚拟化容器来保护 Web 应用。</p>
 <p><a href="https://web-sandbox.js.org/">https://web-sandbox.js.org/</a></p>
 <h2 id="安全模型"><a class="anchor" href="#安全模型"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>安全模型</h2>
 <ul>
@@ -303,6 +299,7 @@
 <li>CSS 安全——Shadow DOM: Web 正式标准</li>
 <li>HTML 安全——Sanitizer: 基于 W3C 草案实现</li>
 <li>内容安全策略——CSP: 基于 W3C 正式标准实现</li>
+<li>陷阱——Proxy：基于 EcmaScript 语言的 Proxy 实现</li>
 </ul>
 <h2 id="dom-树"><a class="anchor" href="#dom-树"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>DOM 树</h2>
 <p>Web Sandbox 拥有完整的 DOM 树结构，这些使用 shadow DOM 隔离。</p>
@@ -318,6 +315,7 @@
 <p>可以通过 CSP 配置来控制应用内部的脚本、样式、链接、表单、网络请求等行为。</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span>
     <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span>
+    <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span>
     <span class="token attr-name">sandboxed</span>
     <span class="token attr-name">csp</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>
       default-src 'none';
@@ -336,7 +334,22 @@
 <h2 id="task"><a class="anchor" href="#task"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Task</h2>
 <p><code>requestAnimationFrame()</code>、<code>setTimeout()</code>、<code>setInterval()</code> 等异步任务将随着 Web Sandbox 销毁而自动结束。</p>
 <h2 id="childsandbox"><a class="anchor" href="#childsandbox"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChildSandbox</h2>
-<p>Web Sandbox 的应用内部也可以使用 Web Sandbox，并且将继承内容安全策略。</p>
+<p>Web Sandbox 的应用内部也可以使用 Web Sandbox，并且将继承内容安全策略。如果父节点的 Web Widget 启用了 <code>sandboxed</code> 属性，子节点（包括 ShadowRoot）中的 Web Widget 也将继承沙盒的权限。</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span>
+  <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span>
+  <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span>
+  <span class="token attr-name">sandboxed</span>
+  <span class="token attr-name">csp</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>
+    default-src 'none';
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' cdn.jsdelivr.net web-sandbox.js.org;
+    style-src 'self' 'unsafe-inline' cdn.jsdelivr.net;
+    navigate-to 'self' web-sandbox.js.org;
+  <span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    #shadow-root (closed)
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./a.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./b.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
 <h2 id="限制"><a class="anchor" href="#限制"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>限制</h2>
 <ul>
 <li>受 Realm 垫片实现影响，远程的脚本与样式必须允许同源访问</li>

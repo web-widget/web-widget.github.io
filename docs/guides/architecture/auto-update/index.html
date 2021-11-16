@@ -10,11 +10,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>应用开发: 入门: Web Widget</title>
-<meta property="og:title" content="应用开发: 入门: Web Widget">
+<title>容器化: 自动更新: Web Widget</title>
+<meta property="og:title" content="容器化: 自动更新: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="http://localhost:8000/guides/developing/getting-started/">
+<link rel="canonical" href="http://localhost:8000/guides/architecture/auto-update/">
 
 
 
@@ -34,8 +34,8 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/0fb4fcd4.png">
-<meta property="og:url" content="http://localhost:8000/guides/developing/getting-started/">
+<meta property="og:image" content="http://localhost:8000/4ad351f1.png">
+<meta property="og:url" content="http://localhost:8000/guides/architecture/auto-update/">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -142,11 +142,10 @@
 
     
       <rocket-navigation>
-  <ul><li class="menu-item active">
+  <ul><li class="menu-item">
 <a href="/guides/developing/">应用开发</a>
-<ul><li class="menu-item current">
+<ul><li class="menu-item">
 <a href="/guides/developing/getting-started/">入门</a>
-
 
 </li>
 <li class="menu-item">
@@ -158,7 +157,7 @@
 
 </li></ul>
 </li>
-<li class="menu-item">
+<li class="menu-item active">
 <a href="/guides/architecture/">容器化</a>
 <ul><li class="menu-item">
 <a href="/guides/architecture/getting-started/">入门</a>
@@ -176,8 +175,16 @@
 <a href="/guides/architecture/shared-dependencies/">共享依赖</a>
 
 </li>
-<li class="menu-item">
+<li class="menu-item current">
 <a href="/guides/architecture/auto-update/">自动更新</a>
+<ul>
+  <li class="menu-item anchor">
+    <a href="#使用公共-npm-cdn" class="anchor">使用公共 NPM CDN</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#搭建私有-npm-cdn" class="anchor">搭建私有 NPM CDN</a>
+  </li>
+</ul>
 
 </li>
 <li class="menu-item">
@@ -207,33 +214,26 @@
       
         <main class="markdown-body">
   
-    <h1 id="应用开发-入门"><a class="anchor" href="#应用开发-入门"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用开发: 入门</h1>
-<p>让我们快速开发第一个一个小挂件：</p>
-<h3 id="1-部署容器"><a class="anchor" href="#1-部署容器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>1. 部署容器</h3>
-<p>首先，在网页 <code>&lt;body&gt;</code> 中添加一个 <code>&lt;web-widget&gt;</code> 标签，它是小挂件的运行容器:</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+    <h1 id="容器化-自动更新"><a class="anchor" href="#容器化-自动更新"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 自动更新</h1>
+<p>Web Widget 应用推荐托管在 NPM 上，这使得可以直接使用公共 CDN 加载它。</p>
+<h2 id="使用公共-npm-cdn"><a class="anchor" href="#使用公共-npm-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用公共 NPM CDN</h2>
+<p>一些公共 CDN 提供了自动更新的机制，例如 <a href="https://www.jsdelivr.com">jsdelivr</a>，你可以通过它实现 Web Widget 应用的自动升级。</p>
+<h3 id="总是自动更新到最新版本"><a class="anchor" href="#总是自动更新到最新版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>总是自动更新到最新版本</h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>然后，在网页底部引入 Web Widget 应用容器的运行时，以便 <code>&lt;web-widget&gt;</code> 标签能够成为浏览器的一部分：</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/@web-widget/container/dist/esm/main.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<h3 id="仅更新-bug-修复"><a class="anchor" href="#仅更新-bug-修复"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>仅更新 BUG 修复</h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget@2<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h3 id="2-开发小挂件"><a class="anchor" href="#2-开发小挂件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>2. 开发小挂件</h3>
-<p>创建相应的 app.widget.js 文件，它是小挂件的<a href="../../../docs/application/overview/">应用格式</a>：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css"><span class="token selector">h3</span> <span class="token punctuation">{</span> <span class="token property">color</span><span class="token punctuation">:</span> red <span class="token punctuation">}</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
-      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>hello wrold<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
-    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<h3 id="使用固定的版本"><a class="anchor" href="#使用固定的版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用固定的版本</h3>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget@2.0.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>恭喜你，你已经完成了第一个 Web Widget 应用的开发。如果你通过服务器浏览网页，你会发现它已经开始工作了！</p>
-<p>接下来，我们将学习开发一个符合生产要求的 Web Widget 应用：<a href="../development/">下一步</a>。</p>
+<h2 id="搭建私有-npm-cdn"><a class="anchor" href="#搭建私有-npm-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>搭建私有 NPM CDN</h2>
+<p><a href="https://unpkg.com">unpkg.com</a> 也是类似于 <a href="https://www.jsdelivr.com">jsdelivr</a> 的公共 CDN，不同的是它开源了他的 NPM CDN 实现，当你需要给 CDN 增加一些额外的功能的时候，不妨基于它的开源方案部署一个属于自己的 CDN。</p>
 
   
     <div class="content-footer">
   <p>
-    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/developing/getting-started.md">在 GitHub 上一起编辑此页面</a>
+    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/architecture/auto-update.md">在 GitHub 上一起编辑此页面</a>
   </p>
 </div>
 
