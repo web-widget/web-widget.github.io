@@ -187,7 +187,11 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/auto-update/">自动更新</a>
+<a href="/guides/architecture/auto-update/">自动更新应用</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/import-maps/">部署导入映射</a>
 
 </li>
 <li class="menu-item">
@@ -241,7 +245,7 @@
 <pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> foo <span class="token keyword module">from</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
 </code></pre>
 <p>当 <code>node_modules</code> 文件夹中的依赖项需要引用其他包时，此类导入很有用。不幸的是，今天的浏览器不理解这种导入方式，需要某种形式的预处理来解析导入以引用实际文件位置。幸运的是 <a href="https://vitejs.dev">Vite</a> 已经自动帮我们处理了这个问题。</p>
-<p>将来，像 <a href="https://github.com/WICG/import-maps">import maps</a> 这样的标准将允许浏览器理解这些类型的导入，而无需转换步骤。对于目前，我们有一个可以过渡到标准的方案，你可以通过<a href="../publishing/">发布文档</a>了解到如何处理浏览器兼容问题。</p>
+<p>将来，像 <a href="https://github.com/WICG/import-maps">import maps</a> 这样的标准将允许浏览器理解这些类型的导入，而无需转换步骤。对于目前，我们有一个可以过渡到标准的方案，你可以通过<a href="../publishing/">发布</a>文档了解到如何处理浏览器兼容问题。</p>
 
   
     <div class="content-footer">

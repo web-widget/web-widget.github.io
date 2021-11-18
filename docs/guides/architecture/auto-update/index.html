@@ -10,8 +10,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>容器化: 自动更新: Web Widget</title>
-<meta property="og:title" content="容器化: 自动更新: Web Widget">
+<title>容器化: 自动更新应用: Web Widget</title>
+<meta property="og:title" content="容器化: 自动更新应用: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
 <link rel="canonical" href="http://localhost:8000/guides/architecture/auto-update/">
@@ -34,7 +34,7 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/4ad351f1.png">
+<meta property="og:image" content="http://localhost:8000/56a4eef5.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/auto-update/">
 
 <meta name="twitter:card" content="summary_large_image">
@@ -176,15 +176,19 @@
 
 </li>
 <li class="menu-item current">
-<a href="/guides/architecture/auto-update/">自动更新</a>
+<a href="/guides/architecture/auto-update/">自动更新应用</a>
 <ul>
   <li class="menu-item anchor">
-    <a href="#使用公共-npm-cdn" class="anchor">使用公共 NPM CDN</a>
+    <a href="#公共-npm-cdn" class="anchor">公共 NPM CDN</a>
   </li>
   <li class="menu-item anchor">
-    <a href="#搭建私有-npm-cdn" class="anchor">搭建私有 NPM CDN</a>
+    <a href="#导入映射" class="anchor">导入映射</a>
   </li>
 </ul>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/import-maps/">部署导入映射</a>
 
 </li>
 <li class="menu-item">
@@ -214,9 +218,18 @@
       
         <main class="markdown-body">
   
-    <h1 id="容器化-自动更新"><a class="anchor" href="#容器化-自动更新"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 自动更新</h1>
-<p>Web Widget 应用推荐托管在 NPM 上，这使得可以直接使用公共 CDN 加载它。</p>
-<h2 id="使用公共-npm-cdn"><a class="anchor" href="#使用公共-npm-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用公共 NPM CDN</h2>
+    <h1 id="容器化-自动更新应用"><a class="anchor" href="#容器化-自动更新应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 自动更新应用</h1>
+<p>Web Widget 应用推荐托管在 NPM 上，你可以完全借助浏览器能力完成应用更新的工作，而不需要经过构建。有两种方法实现更新 Web Widget 应用：</p>
+<ul>
+<li>使用 NPM CDN 提供的自动更新功能</li>
+<li>使用<a href="https://github.com/WICG/import-maps">导入映射</a></li>
+</ul>
+<p>你可以使用其中之一，也可以同时使用两者。它们的区别：</p>
+<ul>
+<li>NPM CDN 则可以完全由应用开发者来提供更新，但是因为 CDN 和浏览器都有缓存，所以难以保证以最快的方式更新版本</li>
+<li>通过导入映射是最快的切换模块版本的方式，但是它需要依赖工程额外的版本管理服务或者硬编码到页面里，应用开发者无法直接通过 NPM 来更新版本</li>
+</ul>
+<h2 id="公共-npm-cdn"><a class="anchor" href="#公共-npm-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>公共 NPM CDN</h2>
 <p>一些公共 CDN 提供了自动更新的机制，例如 <a href="https://www.jsdelivr.com">jsdelivr</a>，你可以通过它实现 Web Widget 应用的自动升级。</p>
 <h3 id="总是自动更新到最新版本"><a class="anchor" href="#总是自动更新到最新版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>总是自动更新到最新版本</h3>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
@@ -227,8 +240,10 @@
 <h3 id="使用固定的版本"><a class="anchor" href="#使用固定的版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用固定的版本</h3>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/tabs-widget@2.0.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h2 id="搭建私有-npm-cdn"><a class="anchor" href="#搭建私有-npm-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>搭建私有 NPM CDN</h2>
+<h3 id="搭建私有-npm-cdn"><a class="anchor" href="#搭建私有-npm-cdn"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>搭建私有 NPM CDN</h3>
 <p><a href="https://unpkg.com">unpkg</a> 也是类似于 <a href="https://www.jsdelivr.com">jsdelivr</a> 的公共 CDN，不同的是它开源了他的 NPM CDN 实现，当你需要给 CDN 增加一些额外的功能的时候，不妨基于它的开源方案部署一个属于自己的 CDN。</p>
+<h2 id="导入映射"><a class="anchor" href="#导入映射"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>导入映射</h2>
+<p>请查看<a href="../import-maps/">部署导入映射</a>了解细节。</p>
 
   
     <div class="content-footer">

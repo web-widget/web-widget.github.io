@@ -183,6 +183,9 @@
   <li class="menu-item anchor">
     <a href="#懒加载" class="anchor">懒加载</a>
   </li>
+  <li class="menu-item anchor">
+    <a href="#裸模块" class="anchor">裸模块</a>
+  </li>
 </ul>
 
 </li>
@@ -351,9 +354,21 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="懒加载"><a class="anchor" href="#懒加载"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>懒加载</h2>
-<p>类似 <code>&lt;img&gt;</code> 标签，使用 <code>loading="lazy"</code> 属性可以让元素进入视图才加载。</p>
+<p>类似 <code>&lt;img&gt;</code> 标签，使用 <code>loading="lazy"</code> 属性可以让用户即将看到的时候才加载，而不会占用网络请求。</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">loading</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>lazy<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
+<h2 id="裸模块"><a class="anchor" href="#裸模块"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>裸模块</h2>
+<p><a href="https://github.com/WICG/import-maps">import-maps</a> 提供了在浏览器中载入裸模块的标准，在 Web Widget 容器使用 <code>import</code> 属性代替 <code>src</code> 即可使用它。</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>importmap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token punctuation">{</span>
+  <span class="token string">"imports"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"@org/app"</span><span class="token punctuation">:</span> <span class="token string">"https://cdn.jsdelivr.net/npm/@org/app/dist/esm/main.js"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">import</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@org/app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>通过 <a href="../plugins/system-loader/">System loader</a> 插件可以解决 <a href="https://github.com/WICG/import-maps">import-maps</a> 的浏览器兼容问题。</p>
 
   
     <div class="content-footer">

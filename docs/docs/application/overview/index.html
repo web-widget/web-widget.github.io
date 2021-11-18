@@ -268,7 +268,7 @@
   
     <h1 id="web-widget-应用"><a class="anchor" href="#web-widget-应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget 应用</h1>
 <p>应用即 <code>&lt;web-widget src="app.widget.js"&gt;</code> 中 <code>src</code> 定义的入口文件。</p>
-<p>Web Widget 应用被设计为一种独立的格式，是一种和 UI 框架无关的的插件抽象，它和具体的应用容器、加载器也无关，包括 Web Widget 容器，因为我们认为通过抽象可以让软件具备更长的生命力。</p>
+<p>Web Widget 应用被设计为一种独立的格式，它是一种和 UI 框架无关的的插件抽象、和具体的应用容器没有直接关系，你甚至可以根据此文档定义的格式来实现自己的应用容器，而不必引入 Web Widget。</p>
 <h2 id="格式"><a class="anchor" href="#格式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>格式</h2>
 <p>入口文件支持定义如下生命周期函数：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
@@ -410,13 +410,13 @@
 </code></pre>
 <hr>
 <p><em>感谢：</em></p>
-<p><a href="https://single-spa.js.org/">single-spa</a> 是一个非常优秀的微前端解决方案，它对 Web Widget 的应用格式设计产生了关键影响：生命周期函数沿用了 <a href="https://single-spa.js.org/">single-spa</a> 的设计。</p>
-<p>对 <a href="https://single-spa.js.org/">single-spa</a> 应用格式主要的改进：</p>
+<p><a href="https://single-spa.js.org/">single-spa</a> 是一个非常优秀的微前端解决方案，它对 Web Widget 的应用格式设计产生了关键影响。相对于 <a href="https://single-spa.js.org/">single-spa</a> 应用格式的差异：</p>
 <ul>
 <li>支持 <code>export default () =&gt; ({/* life cycle */})</code> 形式，并且作为推荐的方式。因为容器通常支持多实例运行</li>
+<li>所有的生命周期函数都是可选的</li>
 <li>明确定义了获取渲染目标的接口 <a href="../interface/#container"><code>container</code></a></li>
-<li>明确定义获取数据的接口 <a href="../interface/#data"><code>data</code></a></li>
-<li>删除了接口 <code>singleSpa</code>。应用应当作为独立的格式存在，不应该与具体的容器实现耦合</li>
+<li>明确定义获取数据的接口 <a href="../interface/#data"><code>data</code></a>。以便外部能够编辑、序列化、存储应用数据</li>
+<li>删除了接口 <code>singleSpa</code>。因为它导致和具体的容器实现耦合</li>
 <li>删除了接口 <code>mountParcel</code>。Web Widget 的应用格式抽象了 <a href="https://single-spa.js.org/">single-spa</a> 中 <code>application</code> 与 <code>parcel</code> 的概念，因此无须再保留 <code>parcel</code> 概念</li>
 </ul>
 
