@@ -292,11 +292,11 @@
 <p>应用容器负责执行应用，它遵循生命周期函数调用的顺序：</p>
 <pre><code>                     ┌ &lt;───────────────────────────┐
 ┌&gt; load ┐            │                             │
-│       └&gt; bootstrap ┤        ┌ &lt;───────┐          │
-│                    └&gt; mount ┤         │          │
-│                             └&gt; update ┤          │
-│                             │         └&gt; unmount ┤
-│                             └───────&gt; ┘          └&gt; unload ┐
+│       └&gt; bootstrap ┤                             │
+│                    └&gt; mount ┐                    │
+│                             └&gt; update ┐          │
+│                             │         ├&gt; unmount ┤
+│                             └ &lt;───────┘          └&gt; unload ┐
 │                                                            │
 └ &lt;──────────────────────────────────────────────────────────┘
 </code></pre>
