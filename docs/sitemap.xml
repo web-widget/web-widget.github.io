@@ -20,12 +20,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/application/overview/</loc>
-      <lastmod>2021-10-28T02:34:28.082Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/docs/container/</loc>
       <lastmod>2021-10-28T02:34:28.083Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -164,12 +158,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/container/interfaces/html-web-widget-element/</loc>
-      <lastmod>2021-11-18T08:16:43.565Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/docs/container/tag/</loc>
       <lastmod>2021-11-18T08:16:43.566Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -224,8 +212,20 @@
     </url>
   
     <url>
+      <loc>http://localhost:8000/docs/application/overview/</loc>
+      <lastmod>2021-11-22T06:59:03.852Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/interfaces/html-web-widget-element/</loc>
+      <lastmod>2021-11-22T06:59:03.853Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
       <loc>http://localhost:8000/guides/</loc>
-      <lastmod>2021-11-18T11:24:07.629Z</lastmod>
+      <lastmod>2021-11-22T06:59:03.853Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   

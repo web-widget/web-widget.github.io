@@ -174,9 +174,6 @@
   <li class="menu-item anchor">
     <a href="#移除" class="anchor">移除</a>
   </li>
-  <li class="menu-item anchor">
-    <a href="#超时" class="anchor">超时</a>
-  </li>
 </ul>
 
 </li>
@@ -292,15 +289,16 @@
 <li>生命周期函数第一个 <code>props</code> 参数接收应用内置的<a href="../interface/">接口</a></li>
 </ul>
 <h2 id="执行"><a class="anchor" href="#执行"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>执行</h2>
-<p>应用容器负责执行应用，它会依次调用应用入口文件的定义的生命周期函数。</p>
-<pre><code>load ┐            ┌ &lt;───────────────────────────┐
-     └&gt; bootstrap ┤                             │
-     │            └&gt; mount ┐                    │
-     │                     └&gt; update ┐          │
-     │                               └&gt; unmount ┤
-     │                                          └&gt; unload ┐
-     │                                                    │
-      &lt;───────────── [ Hot-reloading ] ───────────────────┘
+<p>应用容器负责执行应用，它遵循生命周期函数调用的顺序：</p>
+<pre><code>                     ┌ &lt;───────────────────────────┐
+┌&gt; load ┐            │                             │
+│       └&gt; bootstrap ┤        ┌ &lt;───────┐          │
+│                    └&gt; mount ┤         │          │
+│                             └&gt; update ┤          │
+│                             │         └&gt; unmount ┤
+│                             └───────&gt; ┘          └&gt; unload ┐
+│                                                            │
+└ &lt;──────────────────────────────────────────────────────────┘
 </code></pre>
 <h2 id="接口"><a class="anchor" href="#接口"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>接口</h2>
 <p>应用除了可以使用 BOM 环境提供的 Web 标准接口之外，也有自己的专属接口，应用专属的接口将通过生命周期函数参数进行注入。</p>
@@ -375,39 +373,6 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="超时"><a class="anchor" href="#超时"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>超时</h2>
-<h3 id="timeouts"><a class="anchor" href="#timeouts"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>timeouts</code></h3>
-<p>默认情况下，所有的应用遵循容器定义的超时配置，但对于每个应用也可以通过导出一个 <code>timeouts</code> 对象来重新定义超时时间。如：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">unload</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  timeouts<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-    bootstrap<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      millis<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
-      dieOnTimeout<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      warningMillis<span class="token punctuation">:</span> <span class="token number">2500</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    mount<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      millis<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
-      dieOnTimeout<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-      warningMillis<span class="token punctuation">:</span> <span class="token number">2500</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    unmount<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      millis<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
-      dieOnTimeout<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      warningMillis<span class="token punctuation">:</span> <span class="token number">2500</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    unload<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      millis<span class="token punctuation">:</span> <span class="token number">5000</span><span class="token punctuation">,</span>
-      dieOnTimeout<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
-      warningMillis<span class="token punctuation">:</span> <span class="token number">2500</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
 <hr>
 <p><em>感谢：</em></p>
 <p><a href="https://single-spa.js.org/">single-spa</a> 是一个非常优秀的微前端解决方案，它对 Web Widget 的应用格式设计产生了关键影响。相对于 <a href="https://single-spa.js.org/">single-spa</a> 应用格式的差异：</p>
@@ -416,8 +381,10 @@
 <li>所有的生命周期函数都是可选的</li>
 <li>明确定义了获取渲染目标的接口 <a href="../interface/#container"><code>container</code></a></li>
 <li>明确定义获取数据的接口 <a href="../interface/#data"><code>data</code></a>。以便外部能够编辑、序列化、存储应用数据</li>
-<li>删除了接口 <code>singleSpa</code>。因为它导致和具体的容器实现耦合</li>
-<li>删除了接口 <code>mountParcel</code>。Web Widget 的应用格式抽象了 <a href="https://single-spa.js.org/">single-spa</a> 中 <code>application</code> 与 <code>parcel</code> 的概念，因此无须再保留 <code>parcel</code> 概念</li>
+<li>没有 <code>singleSpa</code> 接口。因为它导致和具体的容器实现耦合</li>
+<li>没有 <code>mountParcel</code> 接口。Web Widget 的应用格式抽象了 <a href="https://single-spa.js.org/">single-spa</a> 中 <code>application</code> 与 <code>parcel</code> 的概念，因此无须再保留 <code>parcel</code> 概念</li>
+<li>不支持 <code>timeouts</code> 配置</li>
+<li>生命周期函数不支持数组形式</li>
 </ul>
 
   
