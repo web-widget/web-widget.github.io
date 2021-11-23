@@ -184,6 +184,9 @@
   <li class="menu-item anchor">
     <a href="#搜索引擎优化" class="anchor">搜索引擎优化</a>
   </li>
+  <li class="menu-item anchor">
+    <a href="#预加载" class="anchor">预加载</a>
+  </li>
 </ul>
 
 </li>
@@ -290,15 +293,15 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="主题"><a class="anchor" href="#主题"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>主题</h2>
-<p>应用通过 <code>:host()</code> 选择器可以实现主题的定义，容器可以控制切换主题。例如使用 <code>class</code> 来切换主题：</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>you-theme<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<p>应用通过 <code>:host()</code> 选择器可以实现主题的定义，容器可以控制切换主题。例如使用 <code>theme</code> 属性来切换主题：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">theme</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-theme<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
 <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
-        <span class="token selector"><span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token class">.you-theme</span><span class="token punctuation">)</span> h3</span> <span class="token punctuation">{</span>
+        <span class="token selector"><span class="token pseudo-class">:host</span><span class="token punctuation">(</span><span class="token attribute"><span class="token punctuation">[</span><span class="token attribute">theme</span><span class="token operator">=</span><span class="token value">my-theme</span><span class="token punctuation">]</span></span><span class="token punctuation">)</span> h3</span> <span class="token punctuation">{</span>
           <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#FFF</span><span class="token punctuation">;</span>
           <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#000</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
@@ -318,6 +321,17 @@
 <li>使用 <a href="https://developers.google.com/web/fundamentals/web-components/shadowdom#lightdom">Light DOM</a> 来描述关键内容</li>
 <li>使用 <a href="https://json-ld.org/">JSON-LD</a> 描述关键内容</li>
 </ul>
+<h2 id="预加载"><a class="anchor" href="#预加载"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>预加载</h2>
+<p>应用将在 <code>bootstrap</code> 的生命周期完成挂载前的准备工作，例如样式、图片、数据的加载，因此我们可以使用容器的 <code>bootstrap()</code> 方法来完成应用的预加载。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> preload <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  widget<span class="token punctuation">.</span><span class="token property-access">inactive</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  widget<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token string">'app.widget.js'</span><span class="token punctuation">;</span>
+  <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">await</span> widget<span class="token punctuation">.</span><span class="token method function property-access">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> widget<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 
   
     <div class="content-footer">
