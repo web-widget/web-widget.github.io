@@ -172,6 +172,9 @@
     <a href="#data" class="anchor">data</a>
   </li>
   <li class="menu-item anchor">
+    <a href="#parameters" class="anchor">parameters</a>
+  </li>
+  <li class="menu-item anchor">
     <a href="#sandboxed" class="anchor">sandboxed</a>
   </li>
   <li class="menu-item anchor">
@@ -317,7 +320,14 @@
 <p>注册到主文档的应用名称。</p>
 <h2 id="data"><a class="anchor" href="#data"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>data</h2>
 <p><code>object</code></p>
-<p>应用的初始化数据。它是一个可以被序列化的数据结构。</p>
+<p>应用的数据。它是一个可以被序列化的数据结构，允许应用自己通过 <a href="#context"><code>context</code></a> 的 <code>update({ data })</code> 方法来更新数据。</p>
+<h2 id="parameters"><a class="anchor" href="#parameters"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>parameters</h2>
+<p><code>object</code></p>
+<p>应用程序的启动参数。它是一个可以被序列化的数据结构，它视作一种环境变量。和 <a href="#data"><code>data</code></a> 区别：</p>
+<ul>
+<li><a href="#data"><code>data</code></a> 被设计为应用的数据，应用开发者对其结构完全知晓；而 <code>parameters</code> 可能包含非常多宿主特有的额外环境信息，例如 <code>theme</code>、<code>lang</code> 等，应用程序可以遵循它们完成特定的一些操作，也可以完全忽视它们而不会引起故障</li>
+<li><code>parameters</code> 是只读的，应用程序自己不能修改它</li>
+</ul>
 <h2 id="sandboxed"><a class="anchor" href="#sandboxed"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>sandboxed</h2>
 <p><code>boolean</code></p>
 <p>应用是否处于沙盒模式中（实验性特性）。</p>
