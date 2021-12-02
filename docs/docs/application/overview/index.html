@@ -168,6 +168,9 @@
   <li class="menu-item anchor">
     <a href="#移除" class="anchor">移除</a>
   </li>
+  <li class="menu-item anchor">
+    <a href="#与-single-spa-的差异" class="anchor">与 single-spa 的差异</a>
+  </li>
 </ul>
 
 </li>
@@ -259,8 +262,8 @@
   
     <h1 id="web-widget-应用"><a class="anchor" href="#web-widget-应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget 应用</h1>
 <p>应用即 <code>&lt;web-widget src="app.widget.js"&gt;</code> 中 <code>src</code> 定义的入口文件。</p>
-<p>Web Widget 应用被设计为一种独立的格式，它是一种和具体 UI 框架无关、和具体的应用容器没有直接关系的设计模式层面的抽象。这样的设计模式被流行的微前端 <a href="https://single-spa.js.org/">single-spa</a> 框架在多种项目中深入的实践，它足够的稳定，经得起时间的考验。</p>
-<p>你可以根据此文档定义的格式来实现自己的应用容器，而不必引入 Web Widget。</p>
+<p>Web Widget 应用被设计为一种独立的格式，它是一种和具体 UI 框架无关的设计模式层面的抽象，这样的设计模式被流行的微前端 <a href="https://single-spa.js.org/">single-spa</a> 框架在多种项目中深入的实践，它足够的稳定，经得起时间的考验。</p>
+<p>在 UI 框架无关的基础上，这份抽象做到了应用容器无关，包括 Web Widget、<a href="https://single-spa.js.org/">single-spa</a>，因此你完全可以根据此抽象实现自己的应用容器而不必依赖 Web Widget 技术设施。</p>
 <h2 id="格式"><a class="anchor" href="#格式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>格式</h2>
 <h3 id="入口文件"><a class="anchor" href="#入口文件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>入口文件</h3>
 <p>入口文件导出了符合约定的生命周期函数：</p>
@@ -369,8 +372,7 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<hr>
-<p><em>感谢：</em></p>
+<h2 id="与-single-spa-的差异"><a class="anchor" href="#与-single-spa-的差异"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>与 single-spa 的差异</h2>
 <p><a href="https://single-spa.js.org/">single-spa</a> 是一个非常优秀的微前端解决方案，它对 Web Widget 的应用格式设计产生了关键影响，经过充分的思考后我们对 <a href="https://single-spa.js.org/">single-spa</a> 进行了一些改进。变更差异：</p>
 <ul>
 <li>支持 <code>export default () =&gt; ({/* life cycle */})</code> 形式，并且作为推荐的方式——因为应用应当默认支持多实例运行</li>
