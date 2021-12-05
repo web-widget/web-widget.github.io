@@ -212,12 +212,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/container/tag/</loc>
-      <lastmod>2021-11-29T04:56:50.367Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/docs/application/overview/</loc>
       <lastmod>2021-12-02T06:37:17.637Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -226,6 +220,36 @@
     <url>
       <loc>http://localhost:8000/docs/container/interfaces/html-web-widget-element/</loc>
       <lastmod>2021-12-02T06:37:17.638Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/module-type/</loc>
+      <lastmod>2021-12-05T13:11:19.219Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/data/</loc>
+      <lastmod>2021-12-05T13:29:28.891Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/lifecycles/</loc>
+      <lastmod>2021-12-05T14:00:35.286Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/style/</loc>
+      <lastmod>2021-12-05T14:25:54.079Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/slot/</loc>
+      <lastmod>2021-12-05T14:58:00.331Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   

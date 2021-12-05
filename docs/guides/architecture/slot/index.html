@@ -10,11 +10,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>容器化: 共享依赖: Web Widget</title>
-<meta property="og:title" content="容器化: 共享依赖: Web Widget">
+<title>容器化: 使用插槽: Web Widget</title>
+<meta property="og:title" content="容器化: 使用插槽: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="http://localhost:8000/guides/architecture/shared-dependencies/">
+<link rel="canonical" href="http://localhost:8000/guides/architecture/slot/">
 
 
 
@@ -34,8 +34,8 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/3669e387.png">
-<meta property="og:url" content="http://localhost:8000/guides/architecture/shared-dependencies/">
+<meta property="og:image" content="http://localhost:8000/844c87eb.png">
+<meta property="og:url" content="http://localhost:8000/guides/architecture/slot/">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -171,13 +171,8 @@
 <a href="/guides/architecture/module-type/">模块格式</a>
 
 </li>
-<li class="menu-item current">
+<li class="menu-item">
 <a href="/guides/architecture/shared-dependencies/">共享依赖</a>
-<ul>
-  <li class="menu-item anchor">
-    <a href="#最佳实践" class="anchor">最佳实践</a>
-  </li>
-</ul>
 
 </li>
 <li class="menu-item">
@@ -196,8 +191,9 @@
 <a href="/guides/architecture/style/">管理样式</a>
 
 </li>
-<li class="menu-item">
+<li class="menu-item current">
 <a href="/guides/architecture/slot/">使用插槽</a>
+
 
 </li>
 <li class="menu-item">
@@ -235,26 +231,33 @@
       
         <main class="markdown-body">
   
-    <h1 id="容器化-共享依赖"><a class="anchor" href="#容器化-共享依赖"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 共享依赖</h1>
-<p>为了提高性能，你的 Web 应用程序只加载一次大型 JavaScript 库至关重要。你选择的框架（React、Vue、Angular 等）应该只在页面上加载一次。</p>
-<p>不建议将所有内容都设置为共享依赖项，因为升级它们需要非常小心。对于小型库，在每个 Web Widget 应用中复制它们可能是可以接受的。例如，<code>lit</code> 可能小到足以复制。但是，对于像 <code>react</code>、<code>vue</code>、<code>rxjs</code> 等大型库，你可以考虑让它们共享依赖项。</p>
-<h2 id="最佳实践"><a class="anchor" href="#最佳实践"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>最佳实践</h2>
-<p>共享依赖有两种主流方法：</p>
-<ol>
-<li><a href="https://github.com/WICG/import-maps">导入映射</a></li>
-<li><a href="https://webpack.js.org/concepts/module-federation/">模块联邦</a></li>
-</ol>
-<p>你可以使用其中之一，也可以同时使用两者。我们目前只推荐使用<a href="https://github.com/WICG/import-maps">导入映射</a>，原因：</p>
-<ol>
-<li>它是浏览器标准，经过精心的设计，具备更长远的生命力</li>
-<li><a href="https://webpack.js.org/concepts/module-federation/">模块联邦</a>是 Webpack5 私有格式，并且目前为止它还处于一个不稳定的状态中</li>
-</ol>
-<p>不幸的是当今<a href="https://github.com/WICG/import-maps">导入映射</a>存在浏览器兼容问题，但是 Web Widget 提供了应对措施，请前往指南：<a href="../import-maps/">部署导入映射</a>。</p>
+    <h1 id="容器化-使用插槽"><a class="anchor" href="#容器化-使用插槽"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 使用插槽</h1>
+<p>使用 <code>slot</code> 属性可以将元素在应用指定的位置渲染（渲染的位置由应用定义）：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Let's have some different text!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>插槽源自于 Web Component，更多插槽信息可以访问 <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">https://developer.mozilla.org/en-US/docs/Web/Web_Components</a>。</p>
 
   
     <div class="content-footer">
   <p>
-    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/architecture/shared-dependencies.md">在 GitHub 上一起编辑此页面</a>
+    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/architecture/slot.md">在 GitHub 上一起编辑此页面</a>
   </p>
 </div>
 
