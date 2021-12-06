@@ -253,5 +253,11 @@
       <changefreq>monthly</changefreq>
     </url>
   
+    <url>
+      <loc>http://localhost:8000/guides/architecture/portal/</loc>
+      <lastmod>2021-12-06T02:29:40.175Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
 </urlset>
 

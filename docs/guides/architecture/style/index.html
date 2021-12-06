@@ -55,7 +55,7 @@
 <link rel="preload" href="../../../9e9e2b78.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../b0ea14e1.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../94f1c8679.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../94f1c86710.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../77d62c06.js" as="script" crossorigin="anonymous">
 </head>
 
@@ -217,6 +217,10 @@
 
 </li>
 <li class="menu-item">
+<a href="/guides/architecture/portal/">子应用与传送门</a>
+
+</li>
+<li class="menu-item">
 <a href="/guides/architecture/plugin/">构建插件系统</a>
 
 </li>
@@ -244,9 +248,9 @@
         <main class="markdown-body">
   
     <h1 id="容器化-管理样式"><a class="anchor" href="#容器化-管理样式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 管理样式</h1>
-<p>默认情况下，Web Widget 容器开启了 <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">shadow DOM</a>，这样的好处是确保应用的 CSS 只影响自己。</p>
+<p>默认情况下，Web Widget 应用工作在 <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">shadow DOM</a> 中。</p>
 <h2 id="作用域"><a class="anchor" href="#作用域"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>作用域</h2>
-<p>例如如下 Web Widget 应用设置了全局的 <code>&lt;h3&gt;</code> 标签的样式，但它只会在应用内部生效：</p>
+<p>shadow DOM 的好处是确保应用的 CSS 只影响自己，这是减少样式冲突问题的最佳技术。例如如下 Web Widget 应用设置了全局的 <code>&lt;h3&gt;</code> 标签的样式，但它只会在应用内部生效：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     container<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">
@@ -257,7 +261,18 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="主题"><a class="anchor" href="#主题"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>主题</h2>
-<p>应用通过 <code>:host()</code> 选择器可以实现主题的定义，容器可以控制切换主题。例如使用 <code>theme</code> 属性来切换主题：</p>
+<p>在 shadow DOM 中，有三种方式可以从外部影响内部的样式，你可以只用其中之一，也可以同时使用三者：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:host">:host</a>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:host()"><code>:host()</code></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:host-context()"><code>:host-context()</code></a></li>
+</ul>
+</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::part">::part</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS Custom Properties</a></li>
+</ul>
+<p>例如使用 <code>theme</code> 属性来切换主题：</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">theme</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>my-theme<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
@@ -304,7 +319,7 @@
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">noshadow</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <inline-notification type="warning">
-<p>关闭 shadow DOM 后，Web Widget 容器的沙箱、插槽等众多高级特性都将无法工作，因此这是一个危险的选择。</p>
+<p>关闭 shadow DOM 后，你需要自己管理应用可能造成的样式冲突的问题，并且 Web Widget 容器的沙箱、插槽等众多高级特性都将无法工作。</p>
 </inline-notification>
         
       
@@ -408,6 +423,6 @@
 <script type="module" src="../../../3ccdef8f.js"></script>
 <script type="module" src="../../../b0ea14e1.js"></script>
 <script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../../../94f1c8679.js" mdjs-setup=""></script>
+<script type="module" src="../../../94f1c86710.js" mdjs-setup=""></script>
 
 </body></html>
