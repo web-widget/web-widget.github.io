@@ -146,12 +146,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/architecture/optimization/</loc>
-      <lastmod>2021-11-22T09:35:38.679Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/guides/architecture/plugin/</loc>
       <lastmod>2021-11-22T09:35:38.680Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -256,6 +250,12 @@
     <url>
       <loc>http://localhost:8000/guides/architecture/portal/</loc>
       <lastmod>2021-12-06T02:29:40.175Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/optimization/</loc>
+      <lastmod>2021-12-06T15:43:23.115Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
