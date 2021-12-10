@@ -260,13 +260,13 @@
   
     <h1 id="web-widget-清单"><a class="anchor" href="#web-widget-清单"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget 清单</h1>
 <p>Web Widget 清单通常用于后端的管理系统获取信息或者增强可视化编辑器的能力，Web Widget 应用没有它也以工作，但有了它后可以让应用变得更强，例如可视化编辑、安全、性能等众多关键要素上有所突破！</p>
-<p>GitHub 上有一份专门用于发展此规范的<a href="https://github.com/web-widget/web-widget-manifest">仓库</a>，它提供了 schema.d.ts 文件来描述此规范，而这篇文档尽量以简单的方式让你能够理解其中的关键部分。</p>
+<p>GitHub 上有一份专门用于发展此规范的<a href="https://github.com/web-widget/web-widget-manifest">仓库</a>，它提供了 <a href="https://github.com/web-widget/web-widget-manifest/blob/master/schema.d.ts">schema.d.ts</a> 文件来描述此规范，而这篇文档尽量以简单的方式让你能够理解其中的关键部分。</p>
 <inline-notification type="warning">
 <p>这份规范在探讨状态，它随时都有可能发生变更。</p>
 </inline-notification>
 <h2 id="初衷"><a class="anchor" href="#初衷"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>初衷</h2>
 <ul>
-<li>和 Web Widget 的初衷一样，我们希望创建真正开放的格式，避免组件开发者将自己宝贵的时间花在私有且封闭的无代码、低代码平台上，而是能够掌握其中核心技术</li>
+<li>我们希望创建真正开放且透明的格式，避免组件开发者将自己宝贵的时间花在私有且封闭的无代码、低代码平台上，而是能够掌握其中核心技术</li>
 <li>组件是一种数字生产物料，它应当尽可能的被重复利用，但是平台或者技术栈的割裂会打破这一点，我们希望以开源的方式让这样的目标变得更容易达成</li>
 <li>我们希望能够做到最好，这个过程中参考了 <a href="https://github.com/webcomponents/custom-elements-manifest">Custom Elements Manifest</a>、<a href="https://www.w3.org/TR/appmanifest/">Web Application Manifest</a>、<a href="https://www.w3.org/TR/2018/OBSL-widgets-20181011">Packaged Web Apps (Widgets)</a>、<a href="https://developer.chrome.com/docs/extensions/mv3/manifest/">Chrome Extensions: Manifest file format</a>、<a href="https://code.visualstudio.com/api/references/extension-manifest">VS Code: Extension Manifest</a> 等众多的清单格式</li>
 </ul>
@@ -324,11 +324,10 @@
   ],
   "<a href="#data">data</a>": {
     "schema": {/* ..[JSON Schema] */},
-    "default": {/* ...[Default data] */}
-  },
-  "<a href="#datauserinterface">dataUserInterface</a>": {
-    "path": "demo-options-ui.esm.js",
-    "fallbackPath": "demo-options-ui.system.js"
+    "userInterface": {
+      "path": "demo-options-ui.esm.js",
+      "fallbackPath": "demo-options-ui.system.js"
+    }
   }
 }
 </pre>
@@ -354,9 +353,9 @@
 <h3 id="icons"><a class="anchor" href="#icons"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>icons</h3>
 <p>应用的图标列表。</p>
 <ul>
-<li>path: 图标路径</li>
-<li>sizes: 图标尺寸规格</li>
-<li>type: 图标格式类型</li>
+<li><code>path</code>: 图标路径</li>
+<li><code>sizes</code>: 图标尺寸规格</li>
+<li><code>type</code>: 图标格式类型</li>
 </ul>
 <h3 id="description"><a class="anchor" href="#description"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>description</h3>
 <p>应用的完整介绍。支持 Markdown 格式。</p>
@@ -364,9 +363,9 @@
 <h3 id="slots"><a class="anchor" href="#slots"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>slots</h3>
 <p>应用的插槽列表。</p>
 <ul>
-<li>name</li>
-<li>summary</li>
-<li>description</li>
+<li><code>name</code></li>
+<li><code>summary</code></li>
+<li><code>description</code></li>
 </ul>
 <h2 id="主题"><a class="anchor" href="#主题"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>主题</h2>
 <h3 id="cssparts"><a class="anchor" href="#cssparts"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>cssParts</h3>
@@ -379,24 +378,23 @@
 <h3 id="cssproperties"><a class="anchor" href="#cssproperties"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>cssProperties</h3>
 <p>应用的 CSS 变量列表。</p>
 <ul>
-<li>name</li>
-<li>summary</li>
-<li>description</li>
-<li>syntax: The syntax must be a valid CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax">syntax string</a> as defined in the CSS Properties and Values API.</li>
-<li>default</li>
+<li><code>name</code></li>
+<li><code>summary</code></li>
+<li><code>description</code></li>
+<li><code>syntax</code>: The syntax must be a valid CSS <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@property/syntax">syntax string</a> as defined in the CSS Properties and Values API</li>
+<li><code>default</code></li>
 </ul>
 <h2 id="数据"><a class="anchor" href="#数据"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>数据</h2>
 <h3 id="data"><a class="anchor" href="#data"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>data</h3>
 <p>应用的数据结构描述。可视化编辑器会基于它来自动的生成数据编辑界面。</p>
 <ul>
-<li>schema: <a href="https://json-schema.org/specification.html">JSON Schema</a>。你可以通过诸如 <a href="https://www.jsonschema.net">https://www.jsonschema.net</a> 在线工具生成它。</li>
-<li>default: 应用的默认数据</li>
-</ul>
-<h3 id="datauserinterface"><a class="anchor" href="#datauserinterface"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>dataUserInterface</h3>
-<p>应用可视化的用户界面。通常用于可视化编辑器中自定义展示 UI 面板来编辑应用数据，并且优先级高于 data.schema 的自动化 UI 生成器。</p>
+<li><code>schema</code>: 用于描述数据结构的 <a href="https://json-schema.org/specification.html">JSON Schema</a> 数据。你可以通过诸如 <a href="https://www.jsonschema.net">https://www.jsonschema.net</a> 在线工具生成它</li>
+<li><code>userInterface</code>: 自定义编辑数据的用户界面。可视化编辑器会根据它来展示用户界面用于数据编辑，它优先级高于 <code>data.schema</code> 的自动化 UI 生成器
 <ul>
-<li>path: 用于展示数据的 Web Widget 应用文件路径，格式为 ES module</li>
-<li>fallbackPath: 用于展示数据的 Web Widget 应用文件的备选格式路径</li>
+<li><code>path</code>: 用于展示数据的 Web Widget 应用文件路径，格式为 ES module</li>
+<li><code>fallbackPath</code>: 用于展示数据的 Web Widget 应用文件的备选格式路径</li>
+</ul>
+</li>
 </ul>
 <hr>
 <p>下个阶段工作重点：</p>
