@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head>
-  
-    <link rel="stylesheet" href="../../../b1403e10.css">
+<!DOCTYPE html><html lang="" dir=""><head>
   
     
 
@@ -34,27 +32,37 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/82ca2bd4.png">
+<meta property="og:image" content="http://localhost:8000/809c2fac.png">
 <meta property="og:url" content="http://localhost:8000/docs/application/overview/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="stylesheet" href="../../../5f77f4be.css">
-<link rel="stylesheet" href="../../../490f016e.css">
-<link rel="stylesheet" href="../../../a0513237.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../../../df6ab4b9.css">
+<link rel="stylesheet" href="../../../0f4765a3.css">
+<link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
 
   
     <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
 
   
 
-<link rel="preload" href="../../../3ccdef8f.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../c896c369.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../9e9e2b78.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../b0ea14e1.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -282,15 +290,37 @@
 </ul>
 <h3 id="执行顺序"><a class="anchor" href="#执行顺序"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>执行顺序</h3>
 <p>应用容器负责执行应用，它严格遵循生命周期的顺序进行调用：</p>
-<pre><code>                    ┌───────────────────┐
-                    │                   │
-┌&gt; load &gt; bootstrap ┴&gt; mount ┬&gt; unmount ┴&gt; unload ┐
-│                            │                    │
-│                           ┌┴&gt; update ┐          │
-│                           │          │          │
-│                           └──────────┘          │
-│                                                 │
-└─────────────────────────────────────────────────┘
+<pre><code>      Start
+        ▼
+    ┌───┴──┐
+    │ load │
+    └───┬──┘
+        ▼
+  ┌─────┴─────┐
+  │ bootstrap │
+  └─────┬─────┘
+┌──────►┤
+│       ▼ 
+│   ┌───┴───┐
+│   │ mount │
+│   └───┬───┘ 
+│       │   ┌───────┐
+│       │   │       ▼
+│       ▼   ▲   ┌───┴────┐
+│       ├───┤   │ update │
+│       │   ▲   └───┬────┘
+│       │   │       ▼                 
+│       │   └───────┘
+│       ▼
+│  ┌────┴────┐
+└─◄┤ unmount │
+   └────┬────┘
+        ▼ 
+   ┌────┴───┐
+   │ unload │
+   └────┬───┘ 
+        ▼
+       End
 </code></pre>
 <h3 id="应用接口"><a class="anchor" href="#应用接口"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用接口</h3>
 <p>应用除了可以使用 BOM 环境提供的 Web 标准接口之外，也有自己的专属接口，应用专属的接口将通过生命周期函数参数进行注入。</p>
@@ -452,31 +482,26 @@
   
 
 
-  <script>
+  
+
+<script>
   window.__rocketServiceWorkerUrl = '/service-worker.js';
 </script>
 
 
 
 
+
+
   
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-131782693-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-131782693-1');
-  </script>
-
 
 
 
   
 
 
-<script type="module" src="../../../3ccdef8f.js"></script>
-<script type="module" src="../../../b0ea14e1.js"></script>
-<script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
+<script type="module" src="../../../e931d24b.js"></script>
+<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
 
 </body></html>

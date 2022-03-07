@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head>
-  
-    <link rel="stylesheet" href="../../../b1403e10.css">
+<!DOCTYPE html><html lang="" dir=""><head>
   
     
 
@@ -34,29 +32,39 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/0dbcfeb1.png">
+<meta property="og:image" content="http://localhost:8000/eb6ec853.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/lifecycles/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="stylesheet" href="../../../5f77f4be.css">
-<link rel="stylesheet" href="../../../490f016e.css">
-<link rel="stylesheet" href="../../../a0513237.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../../../df6ab4b9.css">
+<link rel="stylesheet" href="../../../0f4765a3.css">
+<link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
 
   
     <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
 
   
 
-<link rel="preload" href="../../../3ccdef8f.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../c896c369.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../9e9e2b78.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../b0ea14e1.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../94f1c8676.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../77d62c06.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03ea90937.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -155,6 +163,10 @@
 
 </li>
 <li class="menu-item">
+<a href="/guides/developing/adapter/">框架适配</a>
+
+</li>
+<li class="menu-item">
 <a href="/guides/developing/publishing/">发布</a>
 
 </li></ul>
@@ -222,11 +234,11 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/sandbox/">运行第三方代码</a>
+<a href="/guides/architecture/portal/">唤起子应用</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/portal/">唤起子应用</a>
+<a href="/guides/architecture/sandbox/">运行第三方代码</a>
 
 </li>
 <li class="menu-item">
@@ -262,13 +274,37 @@
 <li>容器插入到文档后，自动执行应用的挂载：load -&gt; bootstrap -&gt; mount</li>
 <li>容器从文档销毁后，自动执行应用的移除：unmount -&gt; unload</li>
 </ul>
-<pre><code>                 ┌───────────────────┐
-                 │                   │
-load &gt; bootstrap ┴&gt; mount ┬&gt; unmount ┴&gt; unload
-                          │
-                         ┌┴&gt; update ┐
-                         │          │
-                         └──────────┘
+<pre><code>      Start
+        ▼
+    ┌───┴──┐
+    │ load │
+    └───┬──┘
+        ▼
+  ┌─────┴─────┐
+  │ bootstrap │
+  └─────┬─────┘
+┌──────►┤
+│       ▼ 
+│   ┌───┴───┐
+│   │ mount │
+│   └───┬───┘ 
+│       │   ┌───────┐
+│       │   │       ▼
+│       ▼   ▲   ┌───┴────┐
+│       ├───┤   │ update │
+│       │   ▲   └───┬────┘
+│       │   │       ▼                 
+│       │   └───────┘
+│       ▼
+│  ┌────┴────┐
+└─◄┤ unmount │
+   └────┬────┘
+        ▼ 
+   ┌────┴───┐
+   │ unload │
+   └────┬───┘ 
+        ▼
+       End
 </code></pre>
 <p>大多数情况下你不需要手动的管理应用生命周期。</p>
 <h2 id="手动控制"><a class="anchor" href="#手动控制"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>手动控制</h2>
@@ -390,32 +426,27 @@ widget<span class="token punctuation">.</span><span class="token method function
   
 
 
-  <script>
+  
+
+<script>
   window.__rocketServiceWorkerUrl = '/service-worker.js';
 </script>
 
 
 
 
+
+
   
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-131782693-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-131782693-1');
-  </script>
-
 
 
 
   
 
 
-<script type="module" src="../../../3ccdef8f.js"></script>
-<script type="module" src="../../../b0ea14e1.js"></script>
-<script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../../../94f1c8676.js" mdjs-setup=""></script>
+<script type="module" src="../../../e931d24b.js"></script>
+<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
+<script type="module" src="../../../03ea90937.js" mdjs-setup=""></script>
 
 </body></html>

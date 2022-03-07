@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head>
-  
-    <link rel="stylesheet" href="../../../b1403e10.css">
+<!DOCTYPE html><html lang="" dir=""><head>
   
     
 
@@ -34,29 +32,39 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/6de78cab.png">
+<meta property="og:image" content="http://localhost:8000/8cccb28b.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/router/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="stylesheet" href="../../../5f77f4be.css">
-<link rel="stylesheet" href="../../../490f016e.css">
-<link rel="stylesheet" href="../../../a0513237.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../../../df6ab4b9.css">
+<link rel="stylesheet" href="../../../0f4765a3.css">
+<link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
 
   
     <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
 
   
 
-<link rel="preload" href="../../../3ccdef8f.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../c896c369.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../9e9e2b78.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../b0ea14e1.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../94f1c8679.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../77d62c06.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03ea909310.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -155,6 +163,10 @@
 
 </li>
 <li class="menu-item">
+<a href="/guides/developing/adapter/">框架适配</a>
+
+</li>
+<li class="menu-item">
 <a href="/guides/developing/publishing/">发布</a>
 
 </li></ul>
@@ -202,11 +214,11 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/sandbox/">运行第三方代码</a>
+<a href="/guides/architecture/portal/">唤起子应用</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/portal/">唤起子应用</a>
+<a href="/guides/architecture/sandbox/">运行第三方代码</a>
 
 </li>
 <li class="menu-item">
@@ -216,9 +228,6 @@
 <li class="menu-item current">
 <a href="/guides/architecture/router/">路由驱动</a>
 <ul>
-  <li class="menu-item anchor">
-    <a href="#安装" class="anchor">安装</a>
-  </li>
   <li class="menu-item anchor">
     <a href="#使用" class="anchor">使用</a>
   </li>
@@ -248,41 +257,43 @@
         <main class="markdown-body">
   
     <h1 id="容器化-路由驱动"><a class="anchor" href="#容器化-路由驱动"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 路由驱动</h1>
-<p>引入路由后，我们可以通过 Web Widget 来架设渐进式的微前端架构。</p>
-<inline-notification type="warning">
-<p>Web Widget 的路由驱动的架构方案还处于试验性状态。</p>
-</inline-notification>
-<h2 id="安装"><a class="anchor" href="#安装"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>安装</h2>
-<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @web-widget/router --save
+<p>Web Router 是一个技术栈中立的路由系统，Web Widget 能够与 Web Router 组合完成单页微前端架构：</p>
+<pre><code>            Start
+              ▼
+     ┌────────┴───────┐
+     │ Backend Router │
+     └────────┬───────┘
+              ▼
+       ┌──────┴─────┐
+       │ Web Router │ 
+       └──────┬─────┘
+              ▼
+  ┌───────────┴───────────┐
+  │ Application Container │
+  │      (Web Widget)     │
+  └───────────┬───────────┘
+              ▼
+┌─────────────┴──────────────┐
+│ Front-End Framework Router │
+│ (React, Vue, Angular, ...) │
+└─────────────┬──────────────┘
+              ▼
+       ┌──────┴──────┐
+       │ Application │
+       └──────┬──────┘
+              ▼
+             End
 </code></pre>
 <h2 id="使用"><a class="anchor" href="#使用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用</h2>
-<p>通常情况下 Web Widget 会基于 DOM 的生命周期来触发应用的生命周期函数，如果给容器添加一个<code>inactive</code> 属性即可关闭与 DOM 生命周期的绑定，以便交给路由管理程序控制它。</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>home<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./index.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">inactive</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>news<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./news.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">inactive</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>about<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./about.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">inactive</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-router</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>web-widget<span class="token punctuation">"</span></span> <span class="token attr-name">import</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@examples/home<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-route</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/news<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>web-widget<span class="token punctuation">"</span></span> <span class="token attr-name">import</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@examples/news<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-route</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-route</span> <span class="token attr-name">path</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>*<span class="token punctuation">"</span></span> <span class="token attr-name">element</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>web-widget<span class="token punctuation">"</span></span> <span class="token attr-name">import</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@examples/404<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-route</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-router</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
-<span class="token keyword module">import</span> <span class="token punctuation">{</span> collection<span class="token punctuation">,</span> history <span class="token punctuation">}</span> <span class="token keyword module">from</span>  <span class="token string">'@web-widget/router'</span><span class="token punctuation">;</span>
-
-collection<span class="token punctuation">.</span><span class="token method function property-access">add</span><span class="token punctuation">(</span>
-  <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'#home'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token parameter"><span class="token dom variable">location</span></span> <span class="token arrow operator">=&gt;</span> <span class="token dom variable">location</span><span class="token punctuation">.</span><span class="token property-access">pathname</span> <span class="token operator">===</span> <span class="token string">'/'</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-collection<span class="token punctuation">.</span><span class="token method function property-access">add</span><span class="token punctuation">(</span>
-  <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'#news'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token parameter"><span class="token dom variable">location</span></span> <span class="token arrow operator">=&gt;</span> <span class="token dom variable">location</span><span class="token punctuation">.</span><span class="token property-access">pathname</span><span class="token punctuation">.</span><span class="token method function property-access">startsWith</span><span class="token punctuation">(</span><span class="token string">'/news'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-collection<span class="token punctuation">.</span><span class="token method function property-access">add</span><span class="token punctuation">(</span>
-  <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">querySelector</span><span class="token punctuation">(</span><span class="token string">'#about'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token parameter"><span class="token dom variable">location</span></span> <span class="token arrow operator">=&gt;</span> <span class="token dom variable">location</span><span class="token punctuation">.</span><span class="token property-access">pathname</span><span class="token punctuation">.</span><span class="token method function property-access">startsWith</span><span class="token punctuation">(</span><span class="token string">'/about'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-collection<span class="token punctuation">.</span><span class="token method function property-access">change</span><span class="token punctuation">(</span><span class="token dom variable">location</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-history<span class="token punctuation">.</span><span class="token method function property-access">listen</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> collection<span class="token punctuation">.</span><span class="token method function property-access">change</span><span class="token punctuation">(</span><span class="token dom variable">location</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>更多请阅读 <a href="../../../docs/container/plugins/router/">Router 插件文档</a>。</p>
+<inline-notification type="warning">
+<p>Web Router 还在发展中，这是 RFC 地址：<a href="https://github.com/growing-web/rfcs/discussions/10">https://github.com/growing-web/rfcs/discussions/10</a>。</p>
+</inline-notification>
 <h2 id="最佳实践"><a class="anchor" href="#最佳实践"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>最佳实践</h2>
 <h3 id="我应该有一个父根应用程序和子应用程序吗"><a class="anchor" href="#我应该有一个父根应用程序和子应用程序吗"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>我应该有一个父/根应用程序和子应用程序吗？</h3>
 <p>不可以。强烈建议 root 只用来管理路由，而不使用任何 UI 库（React、Vue 等），更不包括导航、侧边栏等 UI 部分。</p>
@@ -365,32 +376,27 @@ history<span class="token punctuation">.</span><span class="token method functio
   
 
 
-  <script>
+  
+
+<script>
   window.__rocketServiceWorkerUrl = '/service-worker.js';
 </script>
 
 
 
 
+
+
   
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-131782693-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-131782693-1');
-  </script>
-
 
 
 
   
 
 
-<script type="module" src="../../../3ccdef8f.js"></script>
-<script type="module" src="../../../b0ea14e1.js"></script>
-<script type="module" src="../../../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../../../94f1c8679.js" mdjs-setup=""></script>
+<script type="module" src="../../../e931d24b.js"></script>
+<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
+<script type="module" src="../../../03ea909310.js" mdjs-setup=""></script>
 
 </body></html>

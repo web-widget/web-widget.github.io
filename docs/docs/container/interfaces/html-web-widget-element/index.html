@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en" dir="ltr"><head>
-  
-    <link rel="stylesheet" href="../../../../b1403e10.css">
+<!DOCTYPE html><html lang="" dir=""><head>
   
     
 
@@ -34,29 +32,39 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/832b5d12.png">
+<meta property="og:image" content="http://localhost:8000/a285ff80.png">
 <meta property="og:url" content="http://localhost:8000/docs/container/interfaces/html-web-widget-element/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="stylesheet" href="../../../../5f77f4be.css">
-<link rel="stylesheet" href="../../../../490f016e.css">
-<link rel="stylesheet" href="../../../../a0513237.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
+
+  
+    <link rel="stylesheet" href="../../../../df6ab4b9.css">
+<link rel="stylesheet" href="../../../../0f4765a3.css">
+<link rel="stylesheet" href="../../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../../a27aa5f7.css">
+
+  
+    <noscript><link rel="stylesheet" href="/_merged_assets/_static/search/noscript.css"></noscript>
 
   
     <noscript><link rel="stylesheet" href="/_merged_assets/_static/noscript.css"/></noscript>
 
   
 
-<link rel="preload" href="../../../../3ccdef8f.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../c896c369.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../9e9e2b78.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../b0ea14e1.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../d15d5a5d.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../94f1c867.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../77d62c06.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../a2a9827a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../5284d142.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../234c7f51.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../dd4fcd54.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../03ea9093.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
   
@@ -198,6 +206,9 @@
   </li>
   <li class="menu-item anchor">
     <a href="#type" class="anchor">type</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#rendertarget" class="anchor">rendertarget</a>
   </li>
   <li class="menu-item anchor">
     <a href="#state" class="anchor">state</a>
@@ -395,6 +406,15 @@ widget<span class="token punctuation">.</span><span class="token method function
 <h2 id="type"><a class="anchor" href="#type"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>type</h2>
 <p><code>string</code></p>
 <p>脚本的模块类型，默认值为 <code>"module"</code>。</p>
+<h2 id="rendertarget"><a class="anchor" href="#rendertarget"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>rendertarget</h2>
+<p>渲染目标，默认值为 <code>"shadow"</code>（实验性特性）。允许的值：</p>
+<ul>
+<li><code>"shadow"</code> 使用 shadow DOM 渲染</li>
+<li><code>"light"</code> 使用 light DOM 渲染</li>
+</ul>
+<inline-notification type="warning">
+<p>关闭 light DOM 后，Web Widget 容器的沙箱、插槽特性都将无法工作。</p>
+</inline-notification>
 <h2 id="state"><a class="anchor" href="#state"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>state</h2>
 <p><code>string</code></p>
 <p>应用的状态（只读）。</p>
@@ -538,32 +558,7 @@ widget<span class="token punctuation">.</span><span class="token method function
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <h2 id="createrenderroot"><a class="anchor" href="#createrenderroot"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>createRenderRoot()</h2>
-<p>应用的挂载节点勾子函数（实验性特性）。它默认行为是创建 shadow DOM 节点，覆盖它可以重新定义此行为。</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">defineHook</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token known-class-name class-name">Reflect</span><span class="token punctuation">.</span><span class="token method function property-access">defineProperty</span><span class="token punctuation">(</span>
-    target<span class="token punctuation">,</span>
-    name<span class="token punctuation">,</span>
-    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Reflect</span><span class="token punctuation">.</span><span class="token method function property-access">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token function">defineHook</span><span class="token punctuation">(</span><span class="token class-name">HTMLWebWidgetElement</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">,</span> <span class="token string">'createRenderRoot'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> 
-  <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> <span class="token punctuation">{</span> src<span class="token punctuation">,</span> text<span class="token punctuation">,</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">hasAttribute</span><span class="token punctuation">(</span><span class="token string">'noshadow'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">noshadow</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
-<inline-notification type="warning">
-<p>关闭 shadow DOM 后，Web Widget 容器的沙箱、插槽特性都将无法工作。</p>
-</inline-notification>
+<p>应用的挂载节点勾子函数（实验性特性）。它默认行为是根据 <a href="#rendertarget"><code>rendertarget</code></a> 创建应用的渲染节点，覆盖它可以重新定义此行为。</p>
 <h2 id="load"><a class="anchor" href="#load"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>load()</h2>
 <p>手动加载应用。</p>
 <p>返回值：<code>Promise</code></p>
@@ -632,7 +627,7 @@ widget<span class="token punctuation">.</span><span class="token method function
   <span class="token keyword">return</span> dialogWidget<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>传送门定义好后，应用可以通过 <a href="../../../application/interface/#createportal"><code>createPortal()</code></a> 将子 WevWidget 容器传送到指定的位置渲染：</p>
+<p>传送门定义好后，应用可以通过 <a href="../../../application/interface/#createportal"><code>createPortal()</code></a> 将子 Web Widget 容器传送到指定的位置渲染：</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
 <span class="token keyword module">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container<span class="token punctuation">,</span> createPortal <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> userWidget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -740,32 +735,27 @@ widget<span class="token punctuation">.</span><span class="token method function
   
 
 
-  <script>
+  
+
+<script>
   window.__rocketServiceWorkerUrl = '/service-worker.js';
 </script>
 
 
 
 
+
+
   
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-131782693-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-131782693-1');
-  </script>
-
 
 
 
   
 
 
-<script type="module" src="../../../../3ccdef8f.js"></script>
-<script type="module" src="../../../../b0ea14e1.js"></script>
-<script type="module" src="../../../../d15d5a5d.js" inject-service-worker=""></script>
-<script type="module" src="../../../../94f1c867.js" mdjs-setup=""></script>
+<script type="module" src="../../../../e931d24b.js"></script>
+<script type="module" src="../../../../8d1ff39a.js"></script>
+<script type="module" src="../../../../dd4fcd54.js" inject-service-worker=""></script>
+<script type="module" src="../../../../03ea9093.js" mdjs-setup=""></script>
 
 </body></html>
