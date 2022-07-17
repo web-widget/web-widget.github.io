@@ -32,19 +32,15 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/ab3a5b36.png">
+<meta property="og:image" content="http://localhost:8000/4c18a1ed.png">
 <meta property="og:url" content="http://localhost:8000/docs/container/plugins/system-loader/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
-
+    
   
-    <link rel="stylesheet" href="../../../../df6ab4b9.css">
+    <link rel="stylesheet" href="../../../../a3f4ed9d.css">
 <link rel="stylesheet" href="../../../../0f4765a3.css">
 <link rel="stylesheet" href="../../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../../a27aa5f7.css">
@@ -57,10 +53,10 @@
 
   
 
-<link rel="preload" href="../../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../7043b554.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../../a2a9827a.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../5284d142.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../962426a7.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../../03e5a78c.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../../234c7f51.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../../dd4fcd54.js" as="script" crossorigin="anonymous">
 </head>
@@ -155,10 +151,6 @@
 <ul><li class="menu-item">
 <a href="/docs/application/overview/">概述</a>
 
-</li>
-<li class="menu-item">
-<a href="/docs/application/interface/">接口</a>
-
 </li></ul>
 </li>
 <li class="menu-item active">
@@ -188,14 +180,6 @@
 <a href="/docs/container/plugins/router/">Router</a>
 
 </li>
-<li class="menu-item">
-<a href="/docs/container/plugins/import/">Import</a>
-
-</li>
-<li class="menu-item">
-<a href="/docs/container/plugins/sandbox/">Sandbox</a>
-
-</li>
 <li class="menu-item current">
 <a href="/docs/container/plugins/system-loader/">System-loader</a>
 <ul>
@@ -210,9 +194,6 @@
   </li>
   <li class="menu-item anchor">
     <a href="#使用裸模块加载应用" class="anchor">使用裸模块加载应用</a>
-  </li>
-  <li class="menu-item anchor">
-    <a href="#支持沙盒模式" class="anchor">支持沙盒模式</a>
   </li>
   <li class="menu-item anchor">
     <a href="#更多功能" class="anchor">更多功能</a>
@@ -288,27 +269,6 @@
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">import</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@org/app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <p>Web Widget 容器的 import 与 src 属性的不同：import 属性不会自动补全路径，加载器会优先读取它的原始值去加载模块。</p>
-<h2 id="支持沙盒模式"><a class="anchor" href="#支持沙盒模式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>支持沙盒模式</h2>
-<p>System-loader 支持 Web Widget <a href="../sandbox/">沙盒模式</a>，在这个模式下配置少许有些不同：每个沙盒都是独立的，同样每个 <a href="https://github.com/systemjs/systemjs">SystemJS</a> 实例也是不同的，因此 System-loader 需要知道它的 URL，你需要在 <code>systemjs-importmap</code> 中声明 <code>systemjs</code> 的地址。</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>systemjs-importmap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
-  <span class="token punctuation">{</span>
-    <span class="token string">"imports"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
-      <span class="token string">"systemjs"</span><span class="token punctuation">:</span> <span class="token string">"https://cdn.jsdelivr.net/npm/systemjs@6/dist/s.js"</span><span class="token punctuation">,</span>
-      <span class="token string">"@org/app"</span><span class="token punctuation">:</span> <span class="token string">"https://cdn.jsdelivr.net/npm/@org/app/dist/system/main.js"</span><span class="token punctuation">,</span>
-      <span class="token string">"hello"</span><span class="token punctuation">:</span> <span class="token string">"/system/hello.js"</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">sandboxed</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span> <span class="token attr-name">import</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@org/app<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword module">import</span> <span class="token string">'systemjs/s.js'</span><span class="token punctuation">;</span>
-  <span class="token keyword module">import</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
-  <span class="token keyword module">import</span> <span class="token string">'@web-widget/system-loader'</span><span class="token punctuation">;</span>
-  <span class="token keyword module">import</span> <span class="token string">'@web-widget/sandbox'</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
 <h2 id="更多功能"><a class="anchor" href="#更多功能"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>更多功能</h2>
 <p><a href="https://github.com/systemjs/systemjs">SystemJS</a> 更多的功能请前往其<a href="https://github.com/systemjs/systemjs">官方文档</a>。</p>
 
@@ -403,8 +363,8 @@
   
 
 
-<script type="module" src="../../../../e931d24b.js"></script>
-<script type="module" src="../../../../8d1ff39a.js"></script>
+<script type="module" src="../../../../7043b554.js"></script>
+<script type="module" src="../../../../03e5a78c.js"></script>
 <script type="module" src="../../../../dd4fcd54.js" inject-service-worker=""></script>
 
 </body></html>

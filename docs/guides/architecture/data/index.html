@@ -32,19 +32,15 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/a15ee2b1.png">
+<meta property="og:image" content="http://localhost:8000/9ab999d9.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/data/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
-
+    
   
-    <link rel="stylesheet" href="../../../df6ab4b9.css">
+    <link rel="stylesheet" href="../../../a3f4ed9d.css">
 <link rel="stylesheet" href="../../../0f4765a3.css">
 <link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
@@ -57,13 +53,13 @@
 
   
 
-<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../7043b554.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../962426a7.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03e5a78c.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../03ea90935.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03ea90934.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
@@ -163,10 +159,6 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/developing/adapter/">框架适配</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/developing/publishing/">发布</a>
 
 </li></ul>
@@ -193,6 +185,14 @@
 <a href="/guides/architecture/auto-update/">更新应用</a>
 
 </li>
+<li class="menu-item">
+<a href="/guides/architecture/lifecycles/">管理生命周期</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/slot/">使用插槽</a>
+
+</li>
 <li class="menu-item current">
 <a href="/guides/architecture/data/">管理数据</a>
 <ul>
@@ -212,15 +212,7 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/lifecycles/">管理生命周期</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/style/">管理样式</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/slot/">使用插槽</a>
 
 </li>
 <li class="menu-item">
@@ -229,10 +221,6 @@
 </li>
 <li class="menu-item">
 <a href="/guides/architecture/portal/">唤起子应用</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/sandbox/">运行第三方代码</a>
 
 </li>
 <li class="menu-item">
@@ -268,7 +256,6 @@
 <li>对于小天气挂件这样的应用，通常由应用自己去获取天气数据</li>
 <li>如果应用由可视化编辑器进行可选项设置，那么需要统一的存储这些数据，这通常交给容器来管理数据</li>
 <li>如果想通过 SSR 方式渲染应用，数据要尽可能的提前准备好，这通常应该由容器来管理数据</li>
-<li>基于安全性的考虑，你可能需要会对应用设置更加严格的 CSP（内容安全策略）禁止它们自行请求数据</li>
 </ul>
 <p>Web Widget 应用程序就是普通的 JavaScript 代码，因此可以使用浏览器提供的诸如 <code>fetch</code> 或者 <code>XMLHttpRequest</code> 等方法来获取应用数据，而本文重点是描述如何通过容器管理应用数据。</p>
 <h2 id="通过容器获取数据"><a class="anchor" href="#通过容器获取数据"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>通过容器获取数据</h2>
@@ -306,14 +293,16 @@
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <h2 id="应用内部自更新数据"><a class="anchor" href="#应用内部自更新数据"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用内部自更新数据</h2>
-<p>应用也可以自己更新数据，通过 <code>context.update({ data })</code> 更新数据，这样容器可以观察到数据的变化，进而启动一些数据处理的流程。</p>
+<p>应用也可以自己更新数据，通过 <code>container.update({ data })</code> 更新数据，这样容器可以观察到数据的变化，进而启动一些数据处理的流程。</p>
 <pre class="language-js"><code class="language-js"><span class="token comment">// app.widget.js</span>
 <span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> context <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data<span class="token punctuation">,</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// ...</span>
     element<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-      context<span class="token punctuation">.</span><span class="token method function property-access">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      container<span class="token punctuation">.</span><span class="token method function property-access">update</span><span class="token punctuation">(</span><span class="token punctuation">{</span> data <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
+
+    container<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -421,9 +410,9 @@ webWidgetElement<span class="token punctuation">.</span><span class="token metho
   
 
 
-<script type="module" src="../../../e931d24b.js"></script>
-<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../7043b554.js"></script>
+<script type="module" src="../../../03e5a78c.js"></script>
 <script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
-<script type="module" src="../../../03ea90935.js" mdjs-setup=""></script>
+<script type="module" src="../../../03ea90934.js" mdjs-setup=""></script>
 
 </body></html>

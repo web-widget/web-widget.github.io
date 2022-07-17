@@ -32,19 +32,15 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/cbd97a8e.png">
+<meta property="og:image" content="http://localhost:8000/4ed72e7a.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/style/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
-
+    
   
-    <link rel="stylesheet" href="../../../df6ab4b9.css">
+    <link rel="stylesheet" href="../../../a3f4ed9d.css">
 <link rel="stylesheet" href="../../../0f4765a3.css">
 <link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
@@ -57,13 +53,13 @@
 
   
 
-<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../7043b554.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../962426a7.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03e5a78c.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../03ea909311.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03ea909310.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
@@ -163,10 +159,6 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/developing/adapter/">框架适配</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/developing/publishing/">发布</a>
 
 </li></ul>
@@ -194,11 +186,15 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/data/">管理数据</a>
+<a href="/guides/architecture/lifecycles/">管理生命周期</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/lifecycles/">管理生命周期</a>
+<a href="/guides/architecture/slot/">使用插槽</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/data/">管理数据</a>
 
 </li>
 <li class="menu-item current">
@@ -217,19 +213,11 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/slot/">使用插槽</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/import-maps/">部署导入映射</a>
 
 </li>
 <li class="menu-item">
 <a href="/guides/architecture/portal/">唤起子应用</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/sandbox/">运行第三方代码</a>
 
 </li>
 <li class="menu-item">
@@ -307,31 +295,10 @@
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <h2 id="禁用-shadow-dom"><a class="anchor" href="#禁用-shadow-dom"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>禁用 shadow DOM</h2>
-<p>通过容器<a href="../../../docs/container/interfaces/html-web-widget-element/#createrenderroot">接口</a>可以关闭默认开启的 shadow DOM，例如为 Web Widget 容器增加一个 <code>noshadow</code> 开关：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">defineHook</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token known-class-name class-name">Reflect</span><span class="token punctuation">.</span><span class="token method function property-access">defineProperty</span><span class="token punctuation">(</span>
-    target<span class="token punctuation">,</span>
-    name<span class="token punctuation">,</span>
-    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Reflect</span><span class="token punctuation">.</span><span class="token method function property-access">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span>
-  <span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-
-<span class="token function">defineHook</span><span class="token punctuation">(</span><span class="token class-name">HTMLWebWidgetElement</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">,</span> <span class="token string">'createRenderRoot'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> 
-  <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> <span class="token punctuation">{</span> src<span class="token punctuation">,</span> text<span class="token punctuation">,</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token method function property-access">hasAttribute</span><span class="token punctuation">(</span><span class="token string">'noshadow'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-
-    <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">noshadow</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">rendertarget</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>light<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <inline-notification type="warning">
-<p>关闭 shadow DOM 后，你需要自己管理应用可能造成的样式冲突的问题，并且 Web Widget 容器的沙箱、插槽等众多高级特性都将无法工作。</p>
+<p>关闭 shadow DOM 后，你需要自己管理应用可能造成的样式冲突的问题，并且 Web Widget 容器的插槽等众多高级特性都将无法工作。</p>
 </inline-notification>
         
       
@@ -427,9 +394,9 @@
   
 
 
-<script type="module" src="../../../e931d24b.js"></script>
-<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../7043b554.js"></script>
+<script type="module" src="../../../03e5a78c.js"></script>
 <script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
-<script type="module" src="../../../03ea909311.js" mdjs-setup=""></script>
+<script type="module" src="../../../03ea909310.js" mdjs-setup=""></script>
 
 </body></html>

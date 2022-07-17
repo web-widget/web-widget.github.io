@@ -32,19 +32,15 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/fba31e43.png">
+<meta property="og:image" content="http://localhost:8000/789f665a.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/portal/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
-
+    
   
-    <link rel="stylesheet" href="../../../df6ab4b9.css">
+    <link rel="stylesheet" href="../../../a3f4ed9d.css">
 <link rel="stylesheet" href="../../../0f4765a3.css">
 <link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
@@ -57,13 +53,13 @@
 
   
 
-<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../7043b554.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../962426a7.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03e5a78c.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../03ea90939.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03ea90938.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
@@ -163,10 +159,6 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/developing/adapter/">框架适配</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/developing/publishing/">发布</a>
 
 </li></ul>
@@ -194,19 +186,19 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/data/">管理数据</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/lifecycles/">管理生命周期</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/style/">管理样式</a>
+<a href="/guides/architecture/slot/">使用插槽</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/slot/">使用插槽</a>
+<a href="/guides/architecture/data/">管理数据</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/style/">管理样式</a>
 
 </li>
 <li class="menu-item">
@@ -219,14 +211,7 @@
   <li class="menu-item anchor">
     <a href="#唤起子应用" class="anchor">唤起子应用</a>
   </li>
-  <li class="menu-item anchor">
-    <a href="#在外部唤起子应用" class="anchor">在外部唤起子应用</a>
-  </li>
 </ul>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/sandbox/">运行第三方代码</a>
 
 </li>
 <li class="menu-item">
@@ -272,79 +257,6 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./users.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
       #shadow-root (closed)
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
-<h2 id="在外部唤起子应用"><a class="anchor" href="#在外部唤起子应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>在外部唤起子应用</h2>
-<p>由于每个 Web Widget 应用都具备明确的视图范围，而一些对话框组件通常需要工作在全局中，因此我们参考 React 设计了一个传送门的概念来解决这样的问题——当然，这需要得到容器宿主的允许。</p>
-<p>通过 <code>createPortal()</code> 可以创建一个传送门来传输应用到指定位置。</p>
-<inline-notification type="warning">
-<p><code>createPortal()</code> 接口处于试验性状态。</p>
-</inline-notification>
-<h3 id="定义传送门"><a class="anchor" href="#定义传送门"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>定义传送门</h3>
-<p>传送门工厂函数可以决定应用是否可以被传送以及传送的 DOM 位置，例如我们定义一个 <code>dialog</code> 的传送门：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">HTMLWebWidgetElement</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">'@web-widget/container'</span><span class="token punctuation">;</span>
-
-<span class="token keyword">let</span> dialog<span class="token punctuation">,</span> dialogWidget<span class="token punctuation">;</span>
-<span class="token maybe-class-name">HTMLWebWidgetElement</span><span class="token punctuation">.</span><span class="token property-access">portalDestinations</span><span class="token punctuation">.</span><span class="token method function property-access">define</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token comment">// Single instance</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dialog<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    dialog <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    dialogWidget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>dialog<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    dialog<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>dialogWidget<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    dialogWidget<span class="token punctuation">.</span><span class="token property-access">name</span> <span class="token operator">=</span> <span class="token string">'dialog'</span><span class="token punctuation">;</span>
-    dialogWidget<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">application</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-      <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container<span class="token punctuation">,</span> context <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">const</span> dialogMain <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'slot'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">const</span> dialogCloseButton <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        dialogCloseButton<span class="token punctuation">.</span><span class="token property-access">innerText</span> <span class="token operator">=</span> <span class="token string">'close'</span><span class="token punctuation">;</span>
-        dialogCloseButton<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">onclick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> context<span class="token punctuation">.</span><span class="token method function property-access">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        container<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>dialogCloseButton<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        container<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>dialogMain<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        dialog<span class="token punctuation">.</span><span class="token method function property-access">addEventListener</span><span class="token punctuation">(</span><span class="token string">'close'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-          context<span class="token punctuation">.</span><span class="token method function property-access">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        dialog<span class="token punctuation">.</span><span class="token method function property-access">showModal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-      <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        dialog<span class="token punctuation">.</span><span class="token method function property-access">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> dialogWidget<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h3 id="使用传送门"><a class="anchor" href="#使用传送门"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用传送门</h3>
-<p>应用可以使用主文档定义好的传送门，例如上述定义的 <code>dialog</code> 传送门：</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container<span class="token punctuation">,</span> createPortal <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> appContainer <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  appContainer<span class="token punctuation">.</span><span class="token property-access">slot</span> <span class="token operator">=</span> <span class="token string">'main'</span><span class="token punctuation">;</span>
-  appContainer<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token string">'./user.widget.js'</span><span class="token punctuation">;</span>
-  <span class="token comment">// 传送应用</span>
-  <span class="token keyword">const</span> cardWidget <span class="token operator">=</span> <span class="token function">createPortal</span><span class="token punctuation">(</span>appContainer<span class="token punctuation">,</span> <span class="token string">'dialog'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  cardWidget<span class="token punctuation">.</span><span class="token method function property-access">mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'mounted'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>生成的 DOM：</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-  #shadow-root (closed)
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./card.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-  #shadow-root (closed)
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>main<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./user.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    #shadow-root (closed)
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
         
@@ -441,9 +353,9 @@
   
 
 
-<script type="module" src="../../../e931d24b.js"></script>
-<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../7043b554.js"></script>
+<script type="module" src="../../../03e5a78c.js"></script>
 <script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
-<script type="module" src="../../../03ea90939.js" mdjs-setup=""></script>
+<script type="module" src="../../../03ea90938.js" mdjs-setup=""></script>
 
 </body></html>

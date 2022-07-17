@@ -32,19 +32,15 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/809c2fac.png">
+<meta property="og:image" content="http://localhost:8000/b5354e91.png">
 <meta property="og:url" content="http://localhost:8000/docs/application/overview/">
 
 <meta name="twitter:card" content="summary_large_image">
 
   
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
-
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&amp;display=optional" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=optional" rel="stylesheet">
-
+    
   
-    <link rel="stylesheet" href="../../../df6ab4b9.css">
+    <link rel="stylesheet" href="../../../a3f4ed9d.css">
 <link rel="stylesheet" href="../../../0f4765a3.css">
 <link rel="stylesheet" href="../../../ac2ea3b8.css">
 <link rel="stylesheet" href="../../../a27aa5f7.css">
@@ -57,10 +53,10 @@
 
   
 
-<link rel="preload" href="../../../e931d24b.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../7043b554.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../a2a9827a.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../5284d142.js" as="script" crossorigin="anonymous">
-<link rel="preload" href="../../../8d1ff39a.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../962426a7.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03e5a78c.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
 </head>
@@ -156,13 +152,16 @@
 <a href="/docs/application/overview/">概述</a>
 <ul>
   <li class="menu-item anchor">
-    <a href="#格式" class="anchor">格式</a>
+    <a href="#格式范式" class="anchor">格式范式</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#props" class="anchor">props</a>
   </li>
   <li class="menu-item anchor">
     <a href="#下载" class="anchor">下载</a>
   </li>
   <li class="menu-item anchor">
-    <a href="#初始化" class="anchor">初始化</a>
+    <a href="#引导" class="anchor">引导</a>
   </li>
   <li class="menu-item anchor">
     <a href="#挂载" class="anchor">挂载</a>
@@ -177,10 +176,6 @@
     <a href="#移除" class="anchor">移除</a>
   </li>
 </ul>
-
-</li>
-<li class="menu-item">
-<a href="/docs/application/interface/">接口</a>
 
 </li></ul>
 </li>
@@ -209,14 +204,6 @@
 </li>
 <li class="menu-item">
 <a href="/docs/container/plugins/router/">Router</a>
-
-</li>
-<li class="menu-item">
-<a href="/docs/container/plugins/import/">Import</a>
-
-</li>
-<li class="menu-item">
-<a href="/docs/container/plugins/sandbox/">Sandbox</a>
 
 </li>
 <li class="menu-item">
@@ -264,16 +251,16 @@
     <h1 id="web-widget-应用"><a class="anchor" href="#web-widget-应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget 应用</h1>
 <p>应用即 <code>&lt;web-widget src="app.widget.js"&gt;</code> 中 <code>src</code> 定义的入口文件。</p>
 <p>Web Widget 应用被设计为一种独立的格式，它是一种和具体 UI 框架无关的设计模式层面的抽象，这样的设计模式被流行的微前端 <a href="https://single-spa.js.org/">single-spa</a> 框架在多种项目中深入的实践，它足够的稳定，经得起时间的考验。</p>
-<p>在 UI 框架无关的基础上，这份抽象做到了应用容器无关，包括 Web Widget、<a href="https://single-spa.js.org/">single-spa</a>，因此你完全可以根据此抽象实现自己的应用容器而不必依赖 Web Widget 技术设施。</p>
-<h2 id="格式"><a class="anchor" href="#格式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>格式</h2>
+<p>应用格式不仅仅抽象了不同的前端框架，也不和具体的应用容器绑定，包括 Web Widget、<a href="https://single-spa.js.org/">single-spa</a>，因此你完全可以根据此抽象实现自己的应用容器而不必依赖 Web Widget 的容器。</p>
+<h2 id="格式范式"><a class="anchor" href="#格式范式"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>格式范式</h2>
 <h3 id="入口文件"><a class="anchor" href="#入口文件"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>入口文件</h3>
-<p>入口文件导出了符合约定的生命周期函数：</p>
+<p>JavaScript 文件作为应用的入口文件，它导出了符合约定的生命周期函数：</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token keyword">async</span> <span class="token function">unload</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">unload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>或者使用单例模式：</p>
@@ -286,7 +273,7 @@
 <ul>
 <li>所有生命周期函数都是可选的</li>
 <li>生命周期函数必须返回 <code>promise</code>（建议使用 <code>async</code> 函数保证这一点）</li>
-<li>生命周期函数第一个 <code>props</code> 参数接收应用内置的<a href="../interface/">接口</a></li>
+<li>生命周期函数第一个 <code>props</code> 是应用生命周期参数</li>
 </ul>
 <h3 id="执行顺序"><a class="anchor" href="#执行顺序"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>执行顺序</h3>
 <p>应用容器负责执行应用，它严格遵循生命周期的顺序进行调用：</p>
@@ -322,18 +309,46 @@
         ▼
        End
 </code></pre>
-<h3 id="应用接口"><a class="anchor" href="#应用接口"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用接口</h3>
+<h2 id="props"><a class="anchor" href="#props"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>props</h2>
 <p>应用除了可以使用 BOM 环境提供的 Web 标准接口之外，也有自己的专属接口，应用专属的接口将通过生命周期函数参数进行注入。</p>
-<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> name<span class="token punctuation">,</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">const</span> element <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    element<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token html language-html">The application named '<span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span>' has been mounted</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
-    container<span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">'mounted!'</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container<span class="token punctuation">,</span> data<span class="token punctuation">,</span> env<span class="token punctuation">,</span> <span class="token spread operator">...</span>customProps <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">unload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>详情见<a href="../interface/">应用接口</a>。</p>
+<p><code>container</code>、<code>data</code> 与 <code>env</code> 是应用容器必须实现的接口；<code>customProps</code> 是来自外部任意注入的接口。</p>
+<h4 id="container"><a class="anchor" href="#container"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>container</h4>
+<p><code>HTMLElement</code></p>
+<p>应用的容器。<code>container</code> 继承自 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement"><code>HTMLElement</code></a> 对象，可以使用如下 DOM 接口：</p>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild"><code>container.appendChild()</code></a> 将节点插入到末尾处</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore"><code>container.insertBefore()</code></a> 在参考节点之前插入一个拥有指定父节点的子节点</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/hasChildNodes"><code>container.hasChildNodes()</code></a> 返回一个布尔值，表明容器是否包含有子节点</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild"><code>container.removeChild()</code></a> 删除容器中某个节点</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML"><code>container.innerHTML</code></a> 在容器中插入 HTML 字符串</li>
+</ul>
+<p>除了上述 DOM 接口之外，还有如下容器相关的接口：</p>
+<ul>
+<li><a href="./#mount"><code>container.mount()</code></a> 从容器上触发应用的挂载生命周期</li>
+<li><a href="./#update"><code>container.update(props)</code></a> 从容器上触发应用的更新生命周期</li>
+<li><a href="./#unmount"><code>container.unmount()</code></a> 从容器上触发应用的卸载生命周期</li>
+</ul>
+<h4 id="data"><a class="anchor" href="#data"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>data</h4>
+<p><code>object|array|null</code></p>
+<p>应用的数据。它是一个可以被序列化的数据结构，允许应用自己通过 <code>container.update({ data })</code> 方法来更新数据。</p>
+<h4 id="env"><a class="anchor" href="#env"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>env</h4>
+<p><code>object</code></p>
+<p>应用程序的启动参数。它是一个可以被序列化的数据结构，它视作一种环境变量。和 <a href="#data"><code>data</code></a> 区别：</p>
+<ul>
+<li><a href="#data"><code>data</code></a> 被设计为应用的数据，应用开发者对其结构完全知晓；而 <code>env</code> 可能包含非常多宿主特有的额外环境信息，例如 <code>theme</code>、<code>lang</code> 等，应用程序可以遵循它们完成特定的一些操作，也可以完全忽视它们而不会引起故障</li>
+<li>应用程序可以通过 <code>container.update({ data })</code> 来更新 <a href="#data"><code>data</code></a></li>
+</ul>
+<blockquote>
+<p><code>&lt;web-widget&gt;</code> 元素会将所有的属性都放在 env 中。</p>
+</blockquote>
 <h2 id="下载"><a class="anchor" href="#下载"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>下载</h2>
 <h3 id="load"><a class="anchor" href="#load"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>load</code></h3>
 <p>在下载过程中建议尽可能执行少的操作，可以在 <code>bootstrap</code> 生命周期之后再执行各项操作。若确实有在下载时需要执行的操作，可将代码放入应用入口文件中，但要放在各导出函数的外部。例如：</p>
@@ -343,9 +358,9 @@
   <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h2 id="初始化"><a class="anchor" href="#初始化"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>初始化</h2>
+<h2 id="引导"><a class="anchor" href="#引导"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>引导</h2>
 <h3 id="bootstrap"><a class="anchor" href="#bootstrap"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>bootstrap</code></h3>
-<p>初始化生命周期函数会在应用第一次挂载前执行一次，可以用下载一些应用挂载之前必要的资源，例如外部 CSS 文件等。</p>
+<p>初始化生命周期函数会在应用第一次挂载前执行一次，可以用下载一些应用挂载之前必要的资源，例如外部 CSS 文件、重要的背景图片。</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// One-time initialization code goes here</span>
@@ -353,10 +368,10 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>遵循 <code>bootstrap</code> 后，应用容器可以依次执行 <code>load</code> 与 <code>bootstrap</code> 来进行预加载的优化。</p>
+<p>应用容器可能会对应用进行预加载，预加载的时候会依次执行 load 与 bootstrap，因此恰当的使用 bootstrap 可以有助于提高用户体验。</p>
 <h2 id="挂载"><a class="anchor" href="#挂载"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>挂载</h2>
 <h3 id="mount"><a class="anchor" href="#mount"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>mount</code></h3>
-<p>将自己渲染出来，通常会通过 <a href="../interface/#container"><code>container</code></a> 接口来插入自身 DOM。</p>
+<p>将自己渲染出来，通常会通过 <a href="#container"><code>container</code></a> 接口来插入自身 DOM。</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// Do framework UI rendering here</span>
@@ -367,7 +382,7 @@
 </code></pre>
 <h2 id="更新"><a class="anchor" href="#更新"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>更新</h2>
 <h3 id="update"><a class="anchor" href="#update"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>update</code></h3>
-<p>当应用挂载完成后，外部的容器或者其他程序可能触发“更新”生命周期来更新数据，通常通过 <a href="../interface/#data"><code>data</code></a> 接口获取到更新后的数据。</p>
+<p>当应用挂载完成后，外部的容器或者其他程序可能触发“更新”生命周期来更新数据，通常通过 <a href="#data"><code>data</code></a> 接口获取到更新后的数据。</p>
 <pre class="language-js"><code class="language-js"><span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">// Use a framework to update dom nodes</span>
@@ -401,8 +416,8 @@
 <ul>
 <li>支持 <code>export default () =&gt; ({/* life cycle */})</code> 形式，并且作为推荐的方式——因为应用应当默认支持多实例运行</li>
 <li>所有的生命周期函数都是可选的——我们认为这应该交给应用容器来进行容错处理</li>
-<li>明确定义了获取渲染目标的接口 <a href="../interface/#container"><code>container</code></a></li>
-<li>明确定义获取数据的接口 <a href="../interface/#data"><code>data</code></a>——以便外部能够编辑、序列化、存储应用数据</li>
+<li>明确定义了获取渲染目标的接口 <a href="#container"><code>container</code></a></li>
+<li>明确定义获取数据的接口 <a href="#data"><code>data</code></a>——以便外部能够编辑、序列化、存储应用数据</li>
 <li>没有 <code>singleSpa</code> 接口——因为它导致和具体的容器实现耦合</li>
 <li>没有 <code>mountParcel</code> 接口——Web Widget 的应用格式抽象了 <a href="https://single-spa.js.org/">single-spa</a> 中 <code>application</code> 与 <code>parcel</code> 的概念，因此无须再保留 <code>parcel</code> 概念</li>
 <li>不支持 <code>timeouts</code> 配置——这是应用容器的职责</li>
@@ -500,8 +515,8 @@
   
 
 
-<script type="module" src="../../../e931d24b.js"></script>
-<script type="module" src="../../../8d1ff39a.js"></script>
+<script type="module" src="../../../7043b554.js"></script>
+<script type="module" src="../../../03e5a78c.js"></script>
 <script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
 
 </body></html>
