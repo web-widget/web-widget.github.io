@@ -59,12 +59,14 @@
 <link rel="preload" href="../../../03e5a78c.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../234c7f51.js" as="script" crossorigin="anonymous">
 <link rel="preload" href="../../../dd4fcd54.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../03ea9093.js" as="script" crossorigin="anonymous">
+<link rel="preload" href="../../../cc6ed973.js" as="script" crossorigin="anonymous">
 </head>
 
   
 
   
-  <body layout="layout-index">
+  <body layout="layout-sidebar">
   
 
     
@@ -161,15 +163,79 @@
 </li>
 <li class="menu-item current">
 <a href="/docs/container/interfaces/">接口</a>
-
-<ul><li class="menu-item">
-<a href="/docs/container/interfaces/html-web-widget-element/">HTMLWebWidgetElement</a>
+<ul>
+  <li class="menu-item anchor">
+    <a href="#application" class="anchor">application</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#src" class="anchor">src</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#import" class="anchor">import</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#data" class="anchor">data</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#inactive" class="anchor">inactive</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#loading" class="anchor">loading</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#type" class="anchor">type</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#rendertarget" class="anchor">rendertarget</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#customproperties" class="anchor">customProperties</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#state" class="anchor">state</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#load" class="anchor">load()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#bootstrap" class="anchor">bootstrap()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#mount" class="anchor">mount()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#update" class="anchor">update()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#unmount" class="anchor">unmount()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#unload" class="anchor">unload()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#createapplication" class="anchor">createApplication()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#createproperties" class="anchor">createProperties()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#createcontainer" class="anchor">createContainer()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#createdata" class="anchor">createData()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#createparameters" class="anchor">createParameters()</a>
+  </li>
+  <li class="menu-item anchor">
+    <a href="#timeouts" class="anchor">timeouts</a>
+  </li>
+</ul>
 
 </li>
 <li class="menu-item">
-<a href="/docs/container/interfaces/web-widget-dependencies/">WebWidgetDependencies</a>
+<a href="/docs/container/events/">事件</a>
 
-</li></ul>
 </li>
 <li class="menu-item">
 <a href="/docs/container/plugins/">插件</a>
@@ -187,13 +253,6 @@
 </li>
 <li class="menu-item">
 <a href="/docs/container/plugins/umd-loader/">Umd-loader</a>
-
-</li></ul>
-</li>
-<li class="menu-item">
-<a href="/docs/container/writing-plugins/">编写插件</a>
-<ul><li class="menu-item">
-<a href="/docs/container/writing-plugins/overview/">概述</a>
 
 </li></ul>
 </li></ul>
@@ -221,23 +280,273 @@
 
       
       
-	<main class="markdown-body">
+        <main class="markdown-body">
   
     <h1 id="容器-接口"><a class="anchor" href="#容器-接口"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器: 接口</h1>
+<p>HTMLWebWidgetElement 是 <code>&lt;web-widget&gt;</code> 标签的接口。</p>
+<h2 id="application"><a class="anchor" href="#application"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>application</h2>
+<p><code>function</code></p>
+<p>设置应用的工厂函数。这是一种本地应用的注册方式。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">application</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">bootstrap</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">update</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token keyword">async</span> <span class="token function">unload</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="src"><a class="anchor" href="#src"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>src</h2>
+<p><code>string</code></p>
+<p>设置应用的 URL。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token string">'./app.widget.js'</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="import"><a class="anchor" href="#import"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>import</h2>
+<p>设置应用的模块名。和 <a href="#src">src</a> 的差异：它不会自动的根据 <code>this.baseURI</code> 补全路径，加载器会优先读取它的原始值去加载模块，这意味着它可以支持<a href="https://github.com/WICG/import-maps">裸模块</a>的导入。</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>importmap<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token punctuation">{</span>
+  <span class="token string">"imports"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"@org/app"</span><span class="token punctuation">:</span> <span class="token string">"https://cdn.jsdelivr.net/npm/@org/app/dist/esm/main.js"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token keyword module">import</span> <span class="token operator">=</span> <span class="token string">'@org/app'</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="data"><a class="anchor" href="#data"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>data</h2>
+<p><code>object</code></p>
+<p>应用的数据。应用脚本可以通过生命周期的 <code>props.data</code> 访问到。</p>
+<pre class="language-js"><code class="language-js">widget<span class="token punctuation">.</span><span class="token property-access">data</span> <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token string">'hello'</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>等价于：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">data</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{<span class="token entity" title="&quot;">&amp;quot;</span>a<span class="token entity" title="&quot;">&amp;quot;</span>:<span class="token entity" title="&quot;">&amp;quot;</span>hello<span class="token entity" title="&quot;">&amp;quot;</span>}<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="inactive"><a class="anchor" href="#inactive"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>inactive</h2>
+<p><code>boolean</code></p>
+<p>取消 DOM 的生命周期与应用生命周期的绑定。如果为元素包含 <code>inactive</code> 属性，元素插入 DOM 树或移除的时候都不会自动触发应用生命周期函数，应用的生命周期只能手动调用，例如外部路由管理库来调用。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token property-access">src</span> <span class="token operator">=</span> <span class="token string">'./app.widget.js'</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token property-access">inactive</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 手动挂载</span>
+widget<span class="token punctuation">.</span><span class="token method function property-access">mount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="loading"><a class="anchor" href="#loading"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>loading</h2>
+<p><code>string</code></p>
+<p>指示浏览器应当如何加载。允许的值：</p>
+<ul>
+<li><code>"auto"</code> 自动</li>
+<li><code>"eager"</code> 立即加载，不管它是否在可视视口（visible viewport）之外</li>
+<li><code>"lazy"</code> 延迟加载，直到它和视口接近的距离</li>
+</ul>
+<h2 id="type"><a class="anchor" href="#type"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>type</h2>
+<p><code>string</code></p>
+<p>脚本的模块类型，默认值为 <code>"module"</code>。</p>
+<h2 id="rendertarget"><a class="anchor" href="#rendertarget"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>rendertarget</h2>
+<p>渲染目标，默认值为 <code>"shadow"</code>（实验性特性）。允许的值：</p>
+<ul>
+<li><code>"shadow"</code> 使用 shadow DOM 渲染</li>
+<li><code>"light"</code> 使用 light DOM 渲染</li>
+</ul>
+<inline-notification type="warning">
+<p>关闭 light DOM 后，Web Widget 容器的插槽特性将无法工作。</p>
+</inline-notification>
+<h2 id="customproperties"><a class="anchor" href="#customproperties"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>customProperties</h2>
+<p>自定义应用的生命周期参数成员。</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">const</span> widget <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">createElement</span><span class="token punctuation">(</span><span class="token string">'web-widget'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token property-access">customProperties</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  b<span class="token punctuation">:</span> <span class="token number">2</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+widget<span class="token punctuation">.</span><span class="token method-variable function-variable method function property-access">application</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> a<span class="token punctuation">,</span> b <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+    <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token property-access">body</span><span class="token punctuation">.</span><span class="token method function property-access">appendChild</span><span class="token punctuation">(</span>widget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="state"><a class="anchor" href="#state"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>state</h2>
+<p><code>string</code></p>
+<p>应用的状态（只读）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>状态值</th><th>常量名</th><th>说明</th></tr></thead><tbody><tr><td><code>"initial"</code></td><td><code>INITIAL</code></td><td>应用未加载</td></tr><tr><td><code>"loading"</code></td><td><code>LOADING</code></td><td>应用加载中</td></tr><tr><td><code>"loaded"</code></td><td><code>LOADED</code></td><td>应用已加载但未初始化</td></tr><tr><td><code>"bootstrapping"</code></td><td><code>BOOTSTRAPPING</code></td><td>应用初始化中</td></tr><tr><td><code>"bootstrapped"</code></td><td><code>BOOTSTRAPPED</code></td><td>应用已初始化但未挂载</td></tr><tr><td><code>"mounting"</code></td><td><code>MOUNTING</code></td><td>应用挂载中</td></tr><tr><td><code>"mounted"</code></td><td><code>MOUNTED</code></td><td>应用已挂载</td></tr><tr><td><code>"updating"</code></td><td><code>UPDATING</code></td><td>应用更新数据中</td></tr><tr><td><code>"unmounting"</code></td><td><code>UNMOUNTING</code></td><td>应用卸载中</td></tr><tr><td><code>"unloading"</code></td><td><code>UNLOADING</code></td><td>应用移除中</td></tr><tr><td><code>"load-error"</code></td><td><code>LOAD_ERROR</code></td><td>应用的加载功能返回了被拒绝的承诺</td></tr><tr><td><code>"bootstrap-error"</code></td><td><code>BOOTSTRAP_ERROR</code></td><td>应用的初始化功能返回了被拒绝的承诺</td></tr><tr><td><code>"mount-error"</code></td><td><code>MOUNT_ERROR</code></td><td>应用的挂载功能返回了被拒绝的承诺</td></tr><tr><td><code>"update-error"</code></td><td><code>UPDATE_ERROR</code></td><td>应用的更新功能返回了被拒绝的承诺</td></tr><tr><td><code>"unmount-error"</code></td><td><code>UNMOUNT_ERROR</code></td><td>应用的卸载功能返回了被拒绝的承诺</td></tr><tr><td><code>"unload-error"</code></td><td><code>UNLOAD_ERROR</code></td><td>应用的移除功能返回了被拒绝的承诺</td></tr></tbody></table>
+<blockquote>
+<p>可以通过构造器的静态相属性访问状态常量，例如 <code>"load-error"</code> 等价于 <code>HTMLWebWidgetElement.LOAD_ERROR</code>。</p>
+</blockquote>
+<h2 id="load"><a class="anchor" href="#load"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>load()</h2>
+<p>手动加载应用。</p>
+<p>返回值：<code>Promise</code></p>
+<h2 id="bootstrap"><a class="anchor" href="#bootstrap"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>bootstrap()</h2>
+<p>手动触发应用 <code>bootstrap</code> 生命周期函数。</p>
+<p>返回值：<code>Promise</code></p>
+<h2 id="mount"><a class="anchor" href="#mount"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>mount()</h2>
+<p>手动触发应用 <code>mount</code> 生命周期函数。</p>
+<p>返回值：<code>Promise</code></p>
+<h2 id="update"><a class="anchor" href="#update"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>update()</h2>
+<p>手动触发应用 <code>update</code> 生命周期函数。</p>
+<pre class="language-js"><code class="language-js">widget<span class="token punctuation">.</span><span class="token method function property-access">update</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>返回值：<code>Promise</code></p>
+<h2 id="unmount"><a class="anchor" href="#unmount"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>unmount()</h2>
+<p>手动触发应用 <code>unmount</code> 生命周期函数。</p>
+<p>返回值：<code>Promise</code></p>
+<h2 id="unload"><a class="anchor" href="#unload"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>unload()</h2>
+<p>手动触发应用 <code>unload</code> 生命周期函数。</p>
+<p>返回值：<code>Promise</code></p>
+<h2 id="createapplication"><a class="anchor" href="#createapplication"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>createApplication()</h2>
+<p>创建应用的加载器的勾子函数。它默认行为是调用 <code>import()</code> 加载 ES module，覆盖它可以加载其他格式的模块。</p>
+<p>例如支持 system 模块格式：</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">defineHook</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> name<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token known-class-name class-name">Reflect</span><span class="token punctuation">.</span><span class="token method function property-access">defineProperty</span><span class="token punctuation">(</span>
+    target<span class="token punctuation">,</span>
+    name<span class="token punctuation">,</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token known-class-name class-name">Reflect</span><span class="token punctuation">.</span><span class="token method function property-access">getOwnPropertyDescriptor</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> name<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">defineHook</span><span class="token punctuation">(</span><span class="token class-name">HTMLWebWidgetElement</span><span class="token punctuation">.</span><span class="token property-access">prototype</span><span class="token punctuation">,</span> <span class="token string">'createApplication'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> value <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> 
+  <span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">type</span> <span class="token operator">!==</span> <span class="token string">'system'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> value<span class="token punctuation">.</span><span class="token method function property-access">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token maybe-class-name">System</span><span class="token punctuation">.</span><span class="token keyword module">import</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token keyword module">import</span> <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token property-access">src</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token parameter">module</span> <span class="token arrow operator">=&gt;</span> module<span class="token punctuation">.</span><span class="token keyword module">default</span> <span class="token operator">||</span> module<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>system<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<h2 id="createproperties"><a class="anchor" href="#createproperties"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>createProperties()</h2>
+<p>创建应用生命周期参数的钩子函数。</p>
+<h2 id="createcontainer"><a class="anchor" href="#createcontainer"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>createContainer()</h2>
+<p>创建应用生命周期参数 <code>container</code> 成员的钩子函数。它默认行为是根据 <a href="#rendertarget"><code>rendertarget</code></a> 创建应用的渲染节点，覆盖它可以重新定义此行为。</p>
+<h2 id="createdata"><a class="anchor" href="#createdata"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>createData()</h2>
+<p>创建应用生命周期参数 <code>data</code> 成员的钩子函数。</p>
+<h2 id="createparameters"><a class="anchor" href="#createparameters"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>createParameters()</h2>
+<p>创建应用生命周期参数 <code>parameters</code> 成员的钩子函数。</p>
+<h2 id="timeouts"><a class="anchor" href="#timeouts"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>timeouts</h2>
+<p><code>object</code></p>
+<p>全局超时配置（实验性特性）。这是一个<strong>静态属性</strong>。</p>
+<pre class="language-js"><code class="language-js"><span class="token maybe-class-name">HTMLWebWidgetElement</span><span class="token punctuation">.</span><span class="token property-access">timeouts</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  load<span class="token punctuation">:</span> <span class="token number">12000</span><span class="token punctuation">,</span>
+  bootstrap<span class="token punctuation">:</span> <span class="token number">4000</span><span class="token punctuation">,</span>
+  mount<span class="token punctuation">:</span> <span class="token number">3000</span><span class="token punctuation">,</span>
+  update<span class="token punctuation">:</span> <span class="token number">3000</span><span class="token punctuation">,</span>
+  unmount<span class="token punctuation">:</span> <span class="token number">3000</span><span class="token punctuation">,</span>
+  unload<span class="token punctuation">:</span> <span class="token number">3000</span>
+<span class="token punctuation">}</span>
+</code></pre>
+        
+      
 
   
-    <button id="layout-index-open-navigation" class="call-to-action" data-action="trigger-mobile-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon">
-        <path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path>
-      </svg>
-
-  <span>显示导航</span>
-</button>
+    <div class="content-footer">
+  <p>
+    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/docs/container/interfaces.md">在 GitHub 上一起编辑此页面</a>
+  </p>
+</div>
 
   
 </main>
 
-
+      
     </div>
   </div>
 
@@ -321,5 +630,6 @@
 <script type="module" src="../../../7043b554.js"></script>
 <script type="module" src="../../../03e5a78c.js"></script>
 <script type="module" src="../../../dd4fcd54.js" inject-service-worker=""></script>
+<script type="module" src="../../../03ea9093.js" mdjs-setup=""></script>
 
 </body></html>

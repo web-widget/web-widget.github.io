@@ -26,12 +26,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/container/interfaces/</loc>
-      <lastmod>2021-12-15T02:22:31.565Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/docs/container/overview/</loc>
       <lastmod>2021-12-15T02:22:31.566Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -52,18 +46,6 @@
     <url>
       <loc>http://localhost:8000/docs/container/plugins/umd-loader/</loc>
       <lastmod>2021-12-15T02:22:31.569Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/writing-plugins/</loc>
-      <lastmod>2021-12-15T02:22:31.570Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/writing-plugins/overview/</loc>
-      <lastmod>2021-12-15T02:22:31.570Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
@@ -92,7 +74,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/architecture/getting-started/</loc>
+      <loc>http://localhost:8000/guides/architecture/best-practices/</loc>
       <lastmod>2021-12-15T02:22:31.574Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -100,12 +82,6 @@
     <url>
       <loc>http://localhost:8000/guides/architecture/import-maps/</loc>
       <lastmod>2021-12-15T02:22:31.574Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/architecture/</loc>
-      <lastmod>2021-12-15T02:22:31.575Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
@@ -128,12 +104,6 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/architecture/plugin/</loc>
-      <lastmod>2021-12-15T02:22:31.576Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
       <loc>http://localhost:8000/guides/architecture/router/</loc>
       <lastmod>2021-12-15T02:22:31.578Z</lastmod>
       <changefreq>monthly</changefreq>
@@ -142,12 +112,6 @@
     <url>
       <loc>http://localhost:8000/guides/architecture/shared-dependencies/</loc>
       <lastmod>2021-12-15T02:22:31.579Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/</loc>
-      <lastmod>2021-12-15T02:22:31.582Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
@@ -170,13 +134,7 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/docs/container/interfaces/html-web-widget-element/</loc>
-      <lastmod>2022-07-17T12:49:12.379Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/docs/container/interfaces/web-widget-dependencies/</loc>
+      <loc>http://localhost:8000/docs/container/interfaces/</loc>
       <lastmod>2022-07-17T12:49:12.379Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
@@ -200,20 +158,8 @@
     </url>
   
     <url>
-      <loc>http://localhost:8000/guides/architecture/portal/</loc>
+      <loc>http://localhost:8000/guides/developing/style/</loc>
       <lastmod>2022-07-17T12:49:12.380Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/architecture/style/</loc>
-      <lastmod>2022-07-17T12:49:12.380Z</lastmod>
-      <changefreq>monthly</changefreq>
-    </url>
-  
-    <url>
-      <loc>http://localhost:8000/guides/developing/development/</loc>
-      <lastmod>2022-07-17T12:49:12.381Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   
@@ -232,6 +178,36 @@
     <url>
       <loc>http://localhost:8000/</loc>
       <lastmod>2022-07-17T12:49:12.382Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/docs/container/events/</loc>
+      <lastmod>2022-07-18T13:16:33.957Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/react/</loc>
+      <lastmod>2022-07-18T13:35:34.795Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/vue/</loc>
+      <lastmod>2022-07-18T13:36:41.451Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/developing/</loc>
+      <lastmod>2022-07-18T14:01:08.957Z</lastmod>
+      <changefreq>monthly</changefreq>
+    </url>
+  
+    <url>
+      <loc>http://localhost:8000/guides/architecture/</loc>
+      <lastmod>2022-07-18T14:02:03.468Z</lastmod>
       <changefreq>monthly</changefreq>
     </url>
   

@@ -8,8 +8,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>应用开发: 发布: Web Widget</title>
-<meta property="og:title" content="应用开发: 发布: Web Widget">
+<title>开发: 发布应用: Web Widget</title>
+<meta property="og:title" content="开发: 发布应用: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
 <link rel="canonical" href="http://localhost:8000/guides/developing/publishing/">
@@ -32,7 +32,7 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/7e84e75b.png">
+<meta property="og:image" content="http://localhost:8000/6f352cdf.png">
 <meta property="og:url" content="http://localhost:8000/guides/developing/publishing/">
 
 <meta name="twitter:card" content="summary_large_image">
@@ -147,17 +147,13 @@
     
       <rocket-navigation>
   <ul><li class="menu-item active">
-<a href="/guides/developing/">应用开发</a>
+<a href="/guides/developing/">开发</a>
 <ul><li class="menu-item">
 <a href="/guides/developing/getting-started/">入门</a>
 
 </li>
-<li class="menu-item">
-<a href="/guides/developing/development/">开发</a>
-
-</li>
 <li class="menu-item current">
-<a href="/guides/developing/publishing/">发布</a>
+<a href="/guides/developing/publishing/">发布应用</a>
 <ul>
   <li class="menu-item anchor">
     <a href="#提供-esm-版本" class="anchor">提供 esm 版本</a>
@@ -182,19 +178,23 @@
   </li>
 </ul>
 
+</li>
+<li class="menu-item">
+<a href="/guides/developing/style/">管理样式</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/react/">React 适配</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/vue/">Vue 适配</a>
+
 </li></ul>
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/">容器化</a>
+<a href="/guides/architecture/">深入</a>
 <ul><li class="menu-item">
-<a href="/guides/architecture/getting-started/">入门</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/optimization/">可用性</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/module-type/">模块格式</a>
 
 </li>
@@ -219,23 +219,19 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/style/">管理样式</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/import-maps/">部署导入映射</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/portal/">唤起子应用</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/plugin/">构建插件系统</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/router/">路由驱动</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/best-practices/">最佳实践</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/optimization/">可用性</a>
 
 </li></ul>
 </li></ul>
@@ -257,14 +253,13 @@
       
         <main class="markdown-body">
   
-    <h1 id="应用开发-发布"><a class="anchor" href="#应用开发-发布"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>应用开发: 发布</h1>
+    <h1 id="开发-发布应用"><a class="anchor" href="#开发-发布应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>开发: 发布应用</h1>
 <p>大多数情况下，我们推荐将 Web Widget 应用发布在 NPM 中，这样可以随时通过 CDN 集成。当你准备好将包发布到 NPM 时，请确保按照本文档提供的建议，以确保它具有适应时间变化的弹性。</p>
-<p>你可以通过 <a href="../development/">Web Widget CLI</a> 来简化步骤，你只需要运行 <code>npm run build</code> 即可得到待发布的产物。</p>
 <h2 id="提供-esm-版本"><a class="anchor" href="#提供-esm-版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>提供 esm 版本</h2>
 <p>从一开始就写好标准的 ECMAScript，自然而然就会发布标准的 ECMAScript。但是，如果你选择使用 TypeScript 或各种新兴规范或 API 编写组件，请务必在发布前将代码转换为标准 ECMAScript。如果你使用非标准语法；将其（且仅此）转译为合理的现代水平（例如 <a href="https://github.com/tc39/proposals/blob/master/finished-proposals.md">TC39 Stage 4</a> 和/或可用的跨浏览器），以减少在包含你的包的页面的任何最终生产交付中包含冗长或重复代码的可能性。</p>
 <h2 id="提供-system-版本"><a class="anchor" href="#提供-system-版本"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>提供 system 版本</h2>
 <p>由于目前只有最新的 Chrome 浏览器支持 <a href="https://github.com/WICG/import-maps">import maps</a>，因此为了能够为了解决兼容问题，应当额外准备一份 <code>system</code> 格式版本。</p>
-<p><code>system</code> 格式和构建工具无关，无论是 Webpack 或者 Rollup 都内置了它，<code>system</code> 格式可以作为全面应用 ES module 之前的过度格式。<code>system</code> 支持使用<a href="https://github.com/WICG/import-maps">裸模块</a>导入，并且 Web Widget 沙盒模式也支持它。</p>
+<p><code>system</code> 格式和构建工具无关，无论是 Webpack 或者 Rollup 都内置了它，<code>system</code> 格式可以作为全面应用 ES module 之前的过度格式。<code>system</code> 支持使用<a href="https://github.com/WICG/import-maps">裸模块</a>导入。</p>
 <h2 id="打包好所有依赖"><a class="anchor" href="#打包好所有依赖"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>打包好所有依赖</h2>
 <p>默认情况下，Web Widget 应用的使用者不应该关心依赖处理，而应该是直接可用，所以你应当尽可能的将依赖打包在一起，避免宿主无法处理依赖的情况。</p>
 <h2 id="使用语义化版本管理"><a class="anchor" href="#使用语义化版本管理"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>使用语义化版本管理</h2>

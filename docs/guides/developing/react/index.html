@@ -8,11 +8,11 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Web Widget 容器: Web Widget</title>
-<meta property="og:title" content="Web Widget 容器: Web Widget">
+<title>开发: React 适配: Web Widget</title>
+<meta property="og:title" content="开发: React 适配: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
-<link rel="canonical" href="http://localhost:8000/docs/container/overview/">
+<link rel="canonical" href="http://localhost:8000/guides/developing/react/">
 
 
 
@@ -32,8 +32,8 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/1410b66a.png">
-<meta property="og:url" content="http://localhost:8000/docs/container/overview/">
+<meta property="og:image" content="http://localhost:8000/bff4a06e.png">
+<meta property="og:url" content="http://localhost:8000/guides/developing/react/">
 
 <meta name="twitter:card" content="summary_large_image">
 
@@ -101,11 +101,11 @@
       
   <a href="/guides/" class="
           
-          
+           active 
         ">指南</a>
   <a href="/docs/" class="
           
-           active 
+          
         ">文档</a>
 
     
@@ -146,52 +146,70 @@
 
     
       <rocket-navigation>
-  <ul><li class="menu-item">
-<a href="/docs/application/">应用</a>
+  <ul><li class="menu-item active">
+<a href="/guides/developing/">开发</a>
 <ul><li class="menu-item">
-<a href="/docs/application/overview/">概述</a>
+<a href="/guides/developing/getting-started/">入门</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/publishing/">发布应用</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/style/">管理样式</a>
+
+</li>
+<li class="menu-item current">
+<a href="/guides/developing/react/">React 适配</a>
+
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/vue/">Vue 适配</a>
 
 </li></ul>
 </li>
-<li class="menu-item active">
-<a href="/docs/container/">容器</a>
-<ul><li class="menu-item current">
-<a href="/docs/container/overview/">概述</a>
-
-
-</li>
 <li class="menu-item">
-<a href="/docs/container/interfaces/">接口</a>
-
-</li>
-<li class="menu-item">
-<a href="/docs/container/events/">事件</a>
-
-</li>
-<li class="menu-item">
-<a href="/docs/container/plugins/">插件</a>
+<a href="/guides/architecture/">深入</a>
 <ul><li class="menu-item">
-<a href="/docs/container/plugins/overview/">概述</a>
+<a href="/guides/architecture/module-type/">模块格式</a>
 
 </li>
 <li class="menu-item">
-<a href="/docs/container/plugins/router/">Router</a>
+<a href="/guides/architecture/shared-dependencies/">共享依赖</a>
 
 </li>
 <li class="menu-item">
-<a href="/docs/container/plugins/system-loader/">System-loader</a>
+<a href="/guides/architecture/auto-update/">更新应用</a>
 
 </li>
 <li class="menu-item">
-<a href="/docs/container/plugins/umd-loader/">Umd-loader</a>
+<a href="/guides/architecture/lifecycles/">管理生命周期</a>
 
-</li></ul>
-</li></ul>
 </li>
 <li class="menu-item">
-<a href="/docs/manifest/">清单</a>
-<ul><li class="menu-item">
-<a href="/docs/manifest/overview/">概述</a>
+<a href="/guides/architecture/slot/">使用插槽</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/data/">管理数据</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/import-maps/">部署导入映射</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/router/">路由驱动</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/best-practices/">最佳实践</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/optimization/">可用性</a>
 
 </li></ul>
 </li></ul>
@@ -213,15 +231,40 @@
       
         <main class="markdown-body">
   
-    <h1 id="web-widget-容器"><a class="anchor" href="#web-widget-容器"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Web Widget 容器</h1>
-<p>Web Widget 容器标签名为 <code>&lt;web-widget&gt;</code>，其 <code>src</code> 属性为<a href="../../application/overview/">应用</a>的 URL。</p>
-<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
+    <h1 id="开发-react-适配"><a class="anchor" href="#开发-react-适配"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>开发: React 适配</h1>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token punctuation">{</span> <span class="token maybe-class-name">App</span> <span class="token punctuation">}</span> <span class="token keyword module">from</span> <span class="token string">'./App.tsx'</span><span class="token punctuation">;</span>
+<span class="token keyword module">import</span> <span class="token maybe-class-name">ReactDOM</span> <span class="token keyword module">from</span> <span class="token string">'react-dom'</span><span class="token punctuation">;</span>
+
+<span class="token keyword module">export</span> <span class="token keyword module">default</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> vdom<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token keyword">async</span> <span class="token function">mount</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> container<span class="token punctuation">,</span> data <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>			
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token maybe-class-name">ReactDOM</span><span class="token punctuation">.</span><span class="token property-access">createRoot</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vdom <span class="token operator">=</span> <span class="token maybe-class-name">ReactDOM</span><span class="token punctuation">.</span><span class="token method function property-access">createRoot</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        vdom<span class="token punctuation">.</span><span class="token method function property-access">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token maybe-class-name">App</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// React &lt; 18</span>
+        <span class="token maybe-class-name">ReactDOM</span><span class="token punctuation">.</span><span class="token method function property-access">render</span><span class="token punctuation">(</span><span class="token operator">&lt;</span><span class="token maybe-class-name">App</span> <span class="token operator">/</span><span class="token operator">&gt;</span><span class="token punctuation">,</span> container<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+    <span class="token keyword">async</span> <span class="token function">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>vdom <span class="token operator">&amp;&amp;</span> vdom<span class="token punctuation">.</span><span class="token property-access">unmount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vdom<span class="token punctuation">.</span><span class="token method function property-access">unmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// React &lt; 18</span>
+        <span class="token maybe-class-name">ReactDOM</span><span class="token punctuation">.</span><span class="token method function property-access">unmountComponentAtNode</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      vdom <span class="token operator">=</span> <span class="token keyword null nil">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
 
   
     <div class="content-footer">
   <p>
-    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/docs/container/overview.md">在 GitHub 上一起编辑此页面</a>
+    <a href="https://github.com/web-widget/web-widget/edit/main/./docs/guides/developing/react.md">在 GitHub 上一起编辑此页面</a>
   </p>
 </div>
 

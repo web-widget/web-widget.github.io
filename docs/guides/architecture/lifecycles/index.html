@@ -8,8 +8,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>容器化: 管理生命周期: Web Widget</title>
-<meta property="og:title" content="容器化: 管理生命周期: Web Widget">
+<title>深入: 管理生命周期: Web Widget</title>
+<meta property="og:title" content="深入: 管理生命周期: Web Widget">
 
 <meta name="generator" content="rocket 0.1">
 <link rel="canonical" href="http://localhost:8000/guides/architecture/lifecycles/">
@@ -32,7 +32,7 @@
     <meta property="og:site_name" content="Web Widget">
 <meta property="og:type" content="website">
 
-<meta property="og:image" content="http://localhost:8000/388ae303.png">
+<meta property="og:image" content="http://localhost:8000/3c4cfce2.png">
 <meta property="og:url" content="http://localhost:8000/guides/architecture/lifecycles/">
 
 <meta name="twitter:card" content="summary_large_image">
@@ -149,31 +149,31 @@
     
       <rocket-navigation>
   <ul><li class="menu-item">
-<a href="/guides/developing/">应用开发</a>
+<a href="/guides/developing/">开发</a>
 <ul><li class="menu-item">
 <a href="/guides/developing/getting-started/">入门</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/developing/development/">开发</a>
+<a href="/guides/developing/publishing/">发布应用</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/developing/publishing/">发布</a>
+<a href="/guides/developing/style/">管理样式</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/react/">React 适配</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/developing/vue/">Vue 适配</a>
 
 </li></ul>
 </li>
 <li class="menu-item active">
-<a href="/guides/architecture/">容器化</a>
+<a href="/guides/architecture/">深入</a>
 <ul><li class="menu-item">
-<a href="/guides/architecture/getting-started/">入门</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/optimization/">可用性</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/module-type/">模块格式</a>
 
 </li>
@@ -218,23 +218,19 @@
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/style/">管理样式</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/import-maps/">部署导入映射</a>
 
 </li>
 <li class="menu-item">
-<a href="/guides/architecture/portal/">唤起子应用</a>
-
-</li>
-<li class="menu-item">
-<a href="/guides/architecture/plugin/">构建插件系统</a>
-
-</li>
-<li class="menu-item">
 <a href="/guides/architecture/router/">路由驱动</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/best-practices/">最佳实践</a>
+
+</li>
+<li class="menu-item">
+<a href="/guides/architecture/optimization/">可用性</a>
 
 </li></ul>
 </li></ul>
@@ -256,7 +252,7 @@
       
         <main class="markdown-body">
   
-    <h1 id="容器化-管理生命周期"><a class="anchor" href="#容器化-管理生命周期"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>容器化: 管理生命周期</h1>
+    <h1 id="深入-管理生命周期"><a class="anchor" href="#深入-管理生命周期"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>深入: 管理生命周期</h1>
 <p>默认情况下 Web Widget 应用生命周期是和容器的 DOM 生命周期关联在一起。</p>
 <ul>
 <li>容器插入到文档后，自动执行应用的挂载：load -&gt; bootstrap -&gt; mount</li>
@@ -297,7 +293,7 @@
 <p>大多数情况下你不需要手动的管理应用生命周期。</p>
 <h2 id="手动控制"><a class="anchor" href="#手动控制"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>手动控制</h2>
 <p>Web Widget 容器提供了接口允许你手动控制应用的生命周期，这样可以和其他程序一起来管理应用，例如结合路由管理程序使用。</p>
-<p>在容器上设置 <code>inactive</code> 属性，即可关闭与 DOM 生命周期的绑定，这时候可以通过容器<a href="../../../docs/container/interfaces/html-web-widget-element/">接口</a>来手动控制应用的生命周期。</p>
+<p>在容器上设置 <code>inactive</code> 属性，即可关闭与 DOM 生命周期的绑定，这时候可以通过容器<a href="../../../docs/container/interfaces/">接口</a>来手动控制应用的生命周期。</p>
 <pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>web-widget</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app.widget.js<span class="token punctuation">"</span></span> <span class="token attr-name">inactive</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>web-widget</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <h2 id="手动预加载应用"><a class="anchor" href="#手动预加载应用"><svg class="octicon octicon-link" viewBox="0 0 16 16" aria-hidden="true" width="16" height="16"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>手动预加载应用</h2>
